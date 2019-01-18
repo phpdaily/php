@@ -13,7 +13,7 @@ def generateJob(String path, String tagname) {
         }
 
         triggers {
-            scm('@daily')
+            cron('30 0 * * *')
         }
         
         steps {
