@@ -23,6 +23,7 @@ def generateJob(String path, String tagname) {
                 tag("$tagname")
                 forceTag(false)
                 registryCredentials('dockerio-registry')
+                noCache(true)
             }
         }
     }
