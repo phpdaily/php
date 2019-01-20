@@ -89,3 +89,7 @@ build_image "7.1-dev/jessie/apache/" "$VERSION_71-dev-apache-jessie"
 build_image "7.1-dev/jessie/cli/" "$VERSION_71-dev-cli-jessie"
 build_image "7.1-dev/jessie/fpm/" "$VERSION_71-dev-fpm-jessie"
 build_image "7.1-dev/jessie/zts/" "$VERSION_71-dev-zts-jessie"
+
+# cleanup
+docker system prune --force
+docker volume prune --force
