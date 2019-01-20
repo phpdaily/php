@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+BUILD_VERSION=$1
+
 COLOR_BLUE='\033[0;36m'
 COLOR_RED='\033[1;31m'
 COLOR_YELLOW='\033[1;33m'
@@ -19,6 +21,12 @@ build_image() {
     mkdir -p logs
 
     echo -e "==> Build ${COLOR_YELLOW}$IMAGE_TAG${COLOR_NONE} from ${COLOR_BLUE}$DOCKERFILE_PATH${COLOR_NONE}"
+
+    if [[ -n "$BUILD_VERSION" && "$BUILD_VERSION" != "$VERSION_TAG" ]]; then
+        echo -e "    * Skipping $VERSION_TAG"
+        echo ""
+        return
+    fi
 
     docker build --no-cache -t "$IMAGE_TAG" $DOCKERFILE_PATH > "logs/$VERSION_TAG" 2> "logs/$VERSION_TAG"
 
