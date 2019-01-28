@@ -65,12 +65,22 @@ build_image() {
     fi
 }
 
+VERSION_80="8.0.0"
+build_image "8.0-dev/alpine3.8/cli/" "8.0-dev"
+build_image "8.0-dev/alpine3.8/cli/" "$VERSION_80-dev-cli-alpine"
+build_image "8.0-dev/alpine3.8/fpm/" "$VERSION_80-dev-fpm-alpine"
+build_image "8.0-dev/alpine3.8/zts/" "$VERSION_80-dev-zts-alpine"
+build_image "8.0-dev/stretch/apache/" "$VERSION_80-dev-apache-stretch"
+build_image "8.0-dev/stretch/cli/" "$VERSION_80-dev-cli-stretch"
+build_image "8.0-dev/stretch/fpm/" "$VERSION_80-dev-fpm-stretch"
+build_image "8.0-dev/stretch/zts/" "$VERSION_80-dev-zts-stretch"
+
 VERSION_74="7.4.0"
-build_image "7.4-dev/alpine3.8/cli/" "latest" 
-build_image "7.4-dev/alpine3.8/cli/" "7.4-dev" 
-build_image "7.4-dev/alpine3.8/cli/" "$VERSION_74-dev-cli-alpine" 
-build_image "7.4-dev/alpine3.8/fpm/" "$VERSION_74-dev-fpm-alpine" 
-build_image "7.4-dev/alpine3.8/zts/" "$VERSION_74-dev-zts-alpine" 
+build_image "7.4-dev/alpine3.8/cli/" "latest"
+build_image "7.4-dev/alpine3.8/cli/" "7.4-dev"
+build_image "7.4-dev/alpine3.8/cli/" "$VERSION_74-dev-cli-alpine"
+build_image "7.4-dev/alpine3.8/fpm/" "$VERSION_74-dev-fpm-alpine"
+build_image "7.4-dev/alpine3.8/zts/" "$VERSION_74-dev-zts-alpine"
 build_image "7.4-dev/stretch/apache/" "$VERSION_74-dev-apache-stretch"
 build_image "7.4-dev/stretch/cli/" "$VERSION_74-dev-cli-stretch"
 build_image "7.4-dev/stretch/fpm/" "$VERSION_74-dev-fpm-stretch"
