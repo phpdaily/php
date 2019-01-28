@@ -35,6 +35,7 @@ build_image() {
     local DOCKERFILE_PATH="$1"
     local VERSION_TAG="$2"
     local IMAGE_TAG="$BASE_TAG:$VERSION_TAG"
+    local BUILD_ARGS="--build-arg PEAR_URL=https://github.com/pear/pearweb_phars/raw/master/install-pear-nozlib.phar"
 
     mkdir -p logs
 
@@ -46,10 +47,10 @@ build_image() {
         return
     fi
 
-    docker build --no-cache -t "$IMAGE_TAG" $DOCKERFILE_PATH > "logs/$VERSION_TAG" 2> "logs/$VERSION_TAG" &
-    show_spinner "$!"
-
+    docker build --no-cache $BUILD_ARGS -t "$IMAGE_TAG" $DOCKERFILE_PATH > "logs/$VERSION_TAG" 2> "logs/$VERSION_TAG"
     local EXIT_CODE=$?
+    # show_spinner "$!"
+
     if [[ $EXIT_CODE != 0 ]]; then
         echo -e "${COLOR_RED}    /!\\ ERROR during construction /!\\ ${COLOR_NONE}"
         echo ""
