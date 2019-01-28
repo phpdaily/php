@@ -24,7 +24,7 @@ def generateJob(String path, String tagname) {
                 forceTag(false)
                 registryCredentials('dockerio-registry')
                 noCache(true)
-                additionalBuildArgs("--build-arg PEAR_URL=https://github.com/pear/pearweb_phars/raw/master/install-pear-nozlib.phar")
+                additionalBuildArgs("--rm --build-arg PEAR_URL=https://github.com/pear/pearweb_phars/raw/master/install-pear-nozlib.phar")
             }
         }
     }

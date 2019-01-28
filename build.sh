@@ -35,7 +35,7 @@ build_image() {
     local DOCKERFILE_PATH="$1"
     local VERSION_TAG="$2"
     local IMAGE_TAG="$BASE_TAG:$VERSION_TAG"
-    local BUILD_ARGS="--build-arg PEAR_URL=https://github.com/pear/pearweb_phars/raw/master/install-pear-nozlib.phar"
+    local BUILD_ARGS="--rm --build-arg PEAR_URL=https://github.com/pear/pearweb_phars/raw/master/install-pear-nozlib.phar"
 
     mkdir -p logs
 
