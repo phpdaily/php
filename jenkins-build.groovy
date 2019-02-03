@@ -24,11 +24,21 @@ def generateJob(String path, String tagname) {
                 forceTag(false)
                 registryCredentials('dockerio-registry')
                 noCache(true)
-                additionalBuildArgs("--build-arg PEAR_URL=https://github.com/pear/pearweb_phars/raw/master/install-pear-nozlib.phar")
+                additionalBuildArgs("--rm --build-arg PEAR_URL=https://github.com/pear/pearweb_phars/raw/master/install-pear-nozlib.phar")
             }
         }
     }
 }
+
+def version80 = "8.0.0"
+generateJob('8.0-dev/alpine3.8/cli/', '8.0-dev')
+generateJob('8.0-dev/alpine3.8/cli/', "$version80-dev-cli-alpine")
+generateJob('8.0-dev/alpine3.8/fpm/', "$version80-dev-fpm-alpine")
+generateJob('8.0-dev/alpine3.8/zts/', "$version80-dev-zts-alpine")
+generateJob('8.0-dev/stretch/apache/', "$version80-dev-apache-stretch")
+generateJob('8.0-dev/stretch/cli/', "$version80-dev-cli-stretch")
+generateJob('8.0-dev/stretch/fpm/', "$version80-dev-fpm-stretch")
+generateJob('8.0-dev/stretch/zts/', "$version80-dev-zts-stretch")
 
 def version74 = "7.4.0"
 generateJob('7.4-dev/alpine3.8/cli/', 'latest')

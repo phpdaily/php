@@ -1,27 +1,46 @@
-# https://github.com/docker-library/php
+# phpdaily/php
 
-## Maintained by: [the Docker Community](https://github.com/docker-library/php)
+Nightly build for PHP docker image development branches
 
-This is the Git repo of the [Docker "Official Image"](https://docs.docker.com/docker-hub/official_repos/) for [php](https://hub.docker.com/_/php/) (not to be confused with any official php image provided by php upstream). See [the Docker Hub page](https://hub.docker.com/_/php/) for the full readme on how to use this Docker image and for information regarding contributing and issues.
+**/!\ Don't use those images on production /!\**
 
-The [full description from Docker Hub](https://hub.docker.com/_/php/) is generated over in [docker-library/docs](https://github.com/docker-library/docs), specifically in [docker-library/docs/php](https://github.com/docker-library/docs/tree/master/php).
+## Supported tags and respective Dockerfile links
 
-## See a change merged here that doesn't show up on Docker Hub yet?
+### 8.0
 
-Check [the "library/php" manifest file in the docker-library/official-images repo](https://github.com/docker-library/official-images/blob/master/library/php), especially [PRs with the "library/php" label on that repo](https://github.com/docker-library/official-images/labels/library%2Fphp).
+* [8.0.0-dev-cli-alpine, 8.0-dev](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.8/cli)
+* [8.0.0-dev-fpm-alpine](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.8/fpm)
+* [8.0.0-dev-zts-alpine](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.8/zts)
+* [8.0.0-dev-apache-stretch](https://github.com/phpdaily/php/tree/master/8.0-dev/stretch/apache)
+* [8.0.0-dev-cli-stretch](https://github.com/phpdaily/php/tree/master/8.0-dev/stretch/cli)
+* [8.0.0-dev-fpm-stretch](https://github.com/phpdaily/php/tree/master/8.0-dev/stretch/fpm)
+* [8.0.0-dev-zts-stretch](https://github.com/phpdaily/php/tree/master/8.0-dev/stretch/zts)
 
-For more information about the official images process, see the [docker-library/official-images readme](https://github.com/docker-library/official-images/blob/master/README.md).
+### 7.4
+* [7.4.0-dev-cli-alpine, 7.4-dev, latest](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.8/cli)
+* [7.4.0-dev-fpm-alpine](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.8/fpm)
+* [7.4.0-dev-zts-alpine](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.8/zts)
+* [7.4.0-dev-apache-stretch](https://github.com/phpdaily/php/tree/master/7.4-dev/stretch/apache)
+* [7.4.0-dev-cli-stretch](https://github.com/phpdaily/php/tree/master/7.4-dev/stretch/cli)
+* [7.4.0-dev-fpm-stretch](https://github.com/phpdaily/php/tree/master/7.4-dev/stretch/fpm)
+* [7.4.0-dev-zts-stretch](https://github.com/phpdaily/php/tree/master/7.4-dev/stretch/zts)
 
----
+### 7.3
 
--	[Travis CI:  
-	![build status badge](https://img.shields.io/travis/docker-library/php/master.svg)](https://travis-ci.org/docker-library/php/branches)
--	[Automated `update.sh`:  
-	![build status badge](https://doi-janky.infosiftr.net/job/update.sh/job/php/badge/icon)](https://doi-janky.infosiftr.net/job/update.sh/job/php)
+* [7.3.2-dev-cli-alpine, 7.3-dev](https://github.com/phpdaily/php/tree/master/7.3-dev/alpine3.8/cli)
+* [7.3.2-dev-fpm-alpine](https://github.com/phpdaily/php/tree/master/7.3-dev/alpine3.8/fpm)
+* [7.3.2-dev-zts-alpine](https://github.com/phpdaily/php/tree/master/7.3-dev/alpine3.8/zts)
+* [7.3.2-dev-apache-stretch](https://github.com/phpdaily/php/tree/master/7.3-dev/stretch/apache)
+* [7.3.2-dev-cli-stretch](https://github.com/phpdaily/php/tree/master/7.3-dev/stretch/cli)
+* [7.3.2-dev-fpm-stretch](https://github.com/phpdaily/php/tree/master/7.3-dev/stretch/fpm)
+* [7.3.2-dev-zts-stretch](https://github.com/phpdaily/php/tree/master/7.3-dev/stretch/zts)
 
-| Build | Status | Badges | (per-arch) |
-|:-:|:-:|:-:|:-:|
-| [`amd64`<br />![build status badge](https://doi-janky.infosiftr.net/job/multiarch/job/amd64/job/php/badge/icon)](https://doi-janky.infosiftr.net/job/multiarch/job/amd64/job/php) | [`arm32v5`<br />![build status badge](https://doi-janky.infosiftr.net/job/multiarch/job/arm32v5/job/php/badge/icon)](https://doi-janky.infosiftr.net/job/multiarch/job/arm32v5/job/php) | [`arm32v6`<br />![build status badge](https://doi-janky.infosiftr.net/job/multiarch/job/arm32v6/job/php/badge/icon)](https://doi-janky.infosiftr.net/job/multiarch/job/arm32v6/job/php) | [`arm32v7`<br />![build status badge](https://doi-janky.infosiftr.net/job/multiarch/job/arm32v7/job/php/badge/icon)](https://doi-janky.infosiftr.net/job/multiarch/job/arm32v7/job/php) |
-| [`arm64v8`<br />![build status badge](https://doi-janky.infosiftr.net/job/multiarch/job/arm64v8/job/php/badge/icon)](https://doi-janky.infosiftr.net/job/multiarch/job/arm64v8/job/php) | [`i386`<br />![build status badge](https://doi-janky.infosiftr.net/job/multiarch/job/i386/job/php/badge/icon)](https://doi-janky.infosiftr.net/job/multiarch/job/i386/job/php) | [`ppc64le`<br />![build status badge](https://doi-janky.infosiftr.net/job/multiarch/job/ppc64le/job/php/badge/icon)](https://doi-janky.infosiftr.net/job/multiarch/job/ppc64le/job/php) | [`s390x`<br />![build status badge](https://doi-janky.infosiftr.net/job/multiarch/job/s390x/job/php/badge/icon)](https://doi-janky.infosiftr.net/job/multiarch/job/s390x/job/php) |
+### 7.2
 
-<!-- THIS FILE IS GENERATED BY https://github.com/docker-library/docs/blob/master/generate-repo-stub-readme.sh -->
+* [7.2.15-dev-cli-alpine, 7.2-dev](https://github.com/phpdaily/php/tree/master/7.2-dev/alpine3.8/cli)
+* [7.2.15-dev-fpm-alpine](https://github.com/phpdaily/php/tree/master/7.2-dev/alpine3.8/fpm)
+* [7.2.15-dev-zts-alpine](https://github.com/phpdaily/php/tree/master/7.2-dev/alpine3.8/zts)
+* [7.2.15-dev-apache-stretch](https://github.com/phpdaily/php/tree/master/7.2-dev/stretch/apache)
+* [7.2.15-dev-cli-stretch](https://github.com/phpdaily/php/tree/master/7.2-dev/stretch/cli)
+* [7.2.15-dev-fpm-stretch](https://github.com/phpdaily/php/tree/master/7.2-dev/stretch/fpm)
+* [7.2.15-dev-zts-stretch](https://github.com/phpdaily/php/tree/master/7.2-dev/stretch/zts)
