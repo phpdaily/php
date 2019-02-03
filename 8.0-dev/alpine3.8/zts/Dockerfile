@@ -125,6 +125,9 @@ RUN set -xe \
 		--with-config-file-path="$PHP_INI_DIR" \
 		--with-config-file-scan-dir="$PHP_INI_DIR/conf.d" \
 		\
+# Disable PEAR because if deprecation `each` function remove in 8.0
+		--without-pear \
+		\
 # make sure invalid --configure-flags are fatal errors intead of just warnings
 		--enable-option-checking=fatal \
 		\
@@ -174,7 +177,7 @@ RUN set -xe \
 	&& apk del .build-deps \
 	\
 # https://github.com/docker-library/php/issues/443
-	&& pecl update-channels \
+#	&& pecl update-channels \
 	&& rm -rf /tmp/pear ~/.pearrc
 
 COPY docker-php-ext-* docker-php-entrypoint /usr/local/bin/
