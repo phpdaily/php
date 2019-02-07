@@ -51,7 +51,7 @@ generateJob('7.4-dev/stretch/cli/', "$version74-dev-cli-stretch")
 generateJob('7.4-dev/stretch/fpm/', "$version74-dev-fpm-stretch")
 generateJob('7.4-dev/stretch/zts/', "$version74-dev-zts-stretch")
 
-def version73 = "7.3.2"
+def version73 = "7.3.3"
 generateJob('7.3-dev/alpine3.8/cli/', '7.3-dev')
 generateJob('7.3-dev/alpine3.8/cli/', "$version73-dev-cli-alpine")
 generateJob('7.3-dev/alpine3.8/fpm/', "$version73-dev-fpm-alpine")
