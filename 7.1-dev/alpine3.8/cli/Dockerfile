@@ -6,6 +6,11 @@
 
 FROM alpine:3.8
 
+# PEAR_INSTALLER_URL
+# * Default: https://pear.php.net/install-pear-nozlib.phar
+# * Github: https://github.com/pear/pearweb_phars/raw/master/install-pear-nozlib.phar
+ARG PEAR_URL="https://pear.php.net/install-pear-nozlib.phar"
+
 # dependencies required for running "phpize"
 # these get automatically installed and removed by "docker-php-ext-*" (unless they're already installed)
 ENV PHPIZE_DEPS \
@@ -141,7 +146,7 @@ RUN set -xe \
 		\
 		$PHP_EXTRA_CONFIGURE_ARGS \
 	&& make -j "$(nproc)" \
-	&& make install \
+	&& make install PEAR_INSTALLER_URL="$PEAR_URL" \
 	&& { find /usr/local/bin /usr/local/sbin -type f -perm +0111 -exec strip --strip-all '{}' + || true; } \
 	&& make clean \
 	\

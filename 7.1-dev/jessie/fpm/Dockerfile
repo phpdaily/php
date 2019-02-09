@@ -6,6 +6,11 @@
 
 FROM debian:jessie
 
+# PEAR_INSTALLER_URL
+# * Default: https://pear.php.net/install-pear-nozlib.phar
+# * Github: https://github.com/pear/pearweb_phars/raw/master/install-pear-nozlib.phar
+ARG PEAR_URL="https://pear.php.net/install-pear-nozlib.phar"
+
 # prevent Debian's PHP packages from being installed
 # https://github.com/docker-library/php/pull/542
 RUN set -eux; \
@@ -163,7 +168,7 @@ RUN set -eux; \
 		${PHP_EXTRA_CONFIGURE_ARGS:-} \
 	; \
 	make -j "$(nproc)"; \
-	make install; \
+	make install PEAR_INSTALLER_URL="$PEAR_URL"; \
 	find /usr/local/bin /usr/local/sbin -type f -executable -exec strip --strip-all '{}' + || true; \
 	make clean; \
 	\
