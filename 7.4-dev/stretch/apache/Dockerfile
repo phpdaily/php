@@ -31,6 +31,7 @@ ENV PHPIZE_DEPS \
 		gcc \
 		libc-dev \
 		make \
+		libonig-dev \
 		pkg-config \
 		re2c
 
@@ -272,7 +273,7 @@ RUN set -eux; \
 	php --version; \
 	\
 # https://github.com/docker-library/php/issues/443
-	pecl update-channels; \
+#	pecl update-channels; \
 	rm -rf /tmp/pear ~/.pearrc
 
 COPY docker-php-ext-* docker-php-entrypoint /usr/local/bin/
