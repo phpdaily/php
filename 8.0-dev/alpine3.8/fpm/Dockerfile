@@ -22,6 +22,7 @@ ENV PHPIZE_DEPS \
 		gcc \
 		libc-dev \
 		make \
+		oniguruma-dev \
 		pkgconf \
 		re2c
 

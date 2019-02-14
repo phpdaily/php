@@ -31,6 +31,7 @@ ENV PHPIZE_DEPS \
 		gcc \
 		libc-dev \
 		make \
+		libonig-dev \
 		pkg-config \
 		re2c
 
