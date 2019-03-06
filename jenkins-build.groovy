@@ -26,6 +26,7 @@ def generateJob(String path, String tagname) {
                 noCache(true)
                 additionalBuildArgs("--rm --build-arg PEAR_URL=https://github.com/pear/pearweb_phars/raw/master/install-pear-nozlib.phar")
             }
+            shell("docker rmi --force phpdaily/php:$tagname")
         }
     }
 }
