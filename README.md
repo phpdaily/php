@@ -37,10 +37,10 @@ Nightly build for PHP docker image development branches
 
 ### 7.2
 
-* [7.2.16-dev-cli-alpine, 7.2-dev](https://github.com/phpdaily/php/tree/master/7.2-dev/alpine3.8/cli)
-* [7.2.16-dev-fpm-alpine](https://github.com/phpdaily/php/tree/master/7.2-dev/alpine3.8/fpm)
-* [7.2.16-dev-zts-alpine](https://github.com/phpdaily/php/tree/master/7.2-dev/alpine3.8/zts)
-* [7.2.16-dev-apache-stretch](https://github.com/phpdaily/php/tree/master/7.2-dev/stretch/apache)
-* [7.2.16-dev-cli-stretch](https://github.com/phpdaily/php/tree/master/7.2-dev/stretch/cli)
-* [7.2.16-dev-fpm-stretch](https://github.com/phpdaily/php/tree/master/7.2-dev/stretch/fpm)
-* [7.2.16-dev-zts-stretch](https://github.com/phpdaily/php/tree/master/7.2-dev/stretch/zts)
+* [7.2.18-dev-cli-alpine, 7.2-dev](https://github.com/phpdaily/php/tree/master/7.2-dev/alpine3.8/cli)
+* [7.2.18-dev-fpm-alpine](https://github.com/phpdaily/php/tree/master/7.2-dev/alpine3.8/fpm)
+* [7.2.18-dev-zts-alpine](https://github.com/phpdaily/php/tree/master/7.2-dev/alpine3.8/zts)
+* [7.2.18-dev-apache-stretch](https://github.com/phpdaily/php/tree/master/7.2-dev/stretch/apache)
+* [7.2.18-dev-cli-stretch](https://github.com/phpdaily/php/tree/master/7.2-dev/stretch/cli)
+* [7.2.18-dev-fpm-stretch](https://github.com/phpdaily/php/tree/master/7.2-dev/stretch/fpm)
+* [7.2.18-dev-zts-stretch](https://github.com/phpdaily/php/tree/master/7.2-dev/stretch/zts)
