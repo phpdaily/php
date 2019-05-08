@@ -5,7 +5,7 @@ folder('phpdaily') {
 def generateJob(String path, String tagname) {
     freeStyleJob("phpdaily/$tagname") {
         scm {
-            git("git@github.com:phpdaily/php.git")
+            git("https://github.com/phpdaily/php.git")
         }
 
         logRotator {
