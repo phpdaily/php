@@ -1,33 +1,27 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-# https://secure.php.net/gpg-keys.php
+# https://www.php.net/gpg-keys.php
 declare -A gpgKeys=(
 	# https://wiki.php.net/todo/php73
 	# cmb & stas
-	# https://secure.php.net/gpg-keys.php#gpg-7.3
+	# https://www.php.net/gpg-keys.php#gpg-7.3
 	[7.3]='CBAF69F173A0FEA4B537F470D66C9593118BCCB6 F38252826ACD957EF380D39F2F7956BC5DA04B5D'
 
 	# https://wiki.php.net/todo/php72
 	# pollita & remi
-	# https://secure.php.net/downloads.php#gpg-7.2
-	# https://secure.php.net/gpg-keys.php#gpg-7.2
+	# https://www.php.net/downloads.php#gpg-7.2
+	# https://www.php.net/gpg-keys.php#gpg-7.2
 	[7.2]='1729F83938DA44E27BA0F4D3DBDB397470D12172 B1B44D8F021E4E2D6021E995DC9FF8D3EE5AF27F'
 
 	# https://wiki.php.net/todo/php71
 	# davey & krakjoe
 	# pollita for 7.1.13 for some reason
-	# https://secure.php.net/downloads.php#gpg-7.1
-	# https://secure.php.net/gpg-keys.php#gpg-7.1
+	# https://www.php.net/downloads.php#gpg-7.1
+	# https://www.php.net/gpg-keys.php#gpg-7.1
 	[7.1]='A917B1ECDA84AEC2B568FED6F50ABC807BD5DCD0 528995BFEDFBA7191D46839EF9BA0ADA31CBD89E 1729F83938DA44E27BA0F4D3DBDB397470D12172'
-
-	# https://wiki.php.net/todo/php56
-	# jpauli & tyrael
-	# https://secure.php.net/downloads.php#gpg-5.6
-	# https://secure.php.net/gpg-keys.php#gpg-5.6
-	[5.6]='0BD78B5F97500D450838F95DFE857D9A90D90EC1 6E4F6AB321FDC07F2C332E3AC2BF0BC433CFC8B3'
 )
-# see https://secure.php.net/downloads.php
+# see https://www.php.net/downloads.php
 
 cd "$(dirname "$(readlink -f "$BASH_SOURCE")")"
 
@@ -59,15 +53,15 @@ for version in "${versions[@]}"; do
 	minorVersion="${minorVersion%%.*}"
 
 	# scrape the relevant API based on whether we're looking for pre-releases
-	apiUrl="https://secure.php.net/releases/index.php?json&max=100&version=${rcVersion%%.*}"
+	apiUrl="https://www.php.net/releases/index.php?json&max=100&version=${rcVersion%%.*}"
 	apiJqExpr='
 		(keys[] | select(startswith("'"$rcVersion"'."))) as $version
 		| [ $version, (
 			.[$version].source[]
 			| select(.filename | endswith(".xz"))
 			|
-				"https://secure.php.net/get/" + .filename + "/from/this/mirror",
-				"https://secure.php.net/get/" + .filename + ".asc/from/this/mirror",
+				"https://www.php.net/get/" + .filename + "/from/this/mirror",
+				"https://www.php.net/get/" + .filename + ".asc/from/this/mirror",
 				.sha256 // "",
 				.md5 // ""
 		) ]
@@ -113,7 +107,7 @@ for version in "${versions[@]}"; do
 	gpgKey="${gpgKeys[$rcVersion]}"
 	if [ -z "$gpgKey" ]; then
 		echo >&2 "ERROR: missing GPG key fingerprint for $version"
-		echo >&2 "  try looking on https://secure.php.net/downloads.php#gpg-$version"
+		echo >&2 "  try looking on https://www.php.net/downloads.php#gpg-$version"
 		exit 1
 	fi
 
@@ -124,7 +118,7 @@ for version in "${versions[@]}"; do
 
 	dockerfiles=()
 
-	for suite in stretch jessie alpine{3.8,3.7,3.6}; do
+	for suite in stretch jessie alpine{3.9,3.8}; do
 		[ -d "$version/$suite" ] || continue
 		alpineVer="${suite#alpine}"
 
@@ -154,22 +148,18 @@ for version in "${versions[@]}"; do
 			if [ "$variant" = 'apache' ]; then
 				cp -a apache2-foreground "$version/$suite/$variant/"
 			fi
-			if [ "$majorVersion" = '5' ] || [ "$majorVersion" = '7' -a "$minorVersion" -lt '2' ] || [ "$suite" = 'jessie' ]; then
+			if [ "$majorVersion" = '7' -a "$minorVersion" -lt '2' ] || [ "$suite" = 'jessie' ]; then
 				# argon2 password hashing is only supported in 7.2+ and stretch+ / alpine 3.8+
 				sed -ri \
 					-e '/##<argon2>##/,/##<\/argon2>##/d' \
 					-e '/argon2/d' \
 					"$version/$suite/$variant/Dockerfile"
 			fi
-			if [ "$majorVersion" = '5' ] || [ "$majorVersion" = '7' -a "$minorVersion" -lt '2' ]; then
+			if [ "$majorVersion" = '7' -a "$minorVersion" -lt '2' ]; then
 				# sodium is part of php core 7.2+ https://wiki.php.net/rfc/libsodium
 				sed -ri '/sodium/d' "$version/$suite/$variant/Dockerfile"
 			fi
-			if [ "$majorVersion" = '5' -a "$suite" = 'stretch' ]; then
-				# php 5 still needs older ssl
-				sed -ri 's/libssl-dev/libssl1.0-dev/g' "$version/$suite/$variant/Dockerfile"
-			fi
-			if [ "$variant" = 'fpm' -a "$majorVersion" = '5' ] || [ "$variant" = 'fpm' -a "$majorVersion" = '7' -a "$minorVersion" -lt '3' ]; then
+			if [ "$variant" = 'fpm' -a "$majorVersion" = '7' -a "$minorVersion" -lt '3' ]; then
 				# php-fpm "decorate_workers_output" is only available in 7.3+
 				sed -ri \
 					-e '/decorate_workers_output/d' \
@@ -193,6 +183,12 @@ for version in "${versions[@]}"; do
 				-e 's!%%ALPINE_VERSION%%!'"$alpineVer"'!' \
 				"$version/$suite/$variant/Dockerfile"
 			dockerfiles+=( "$version/$suite/$variant/Dockerfile" )
+
+			if [ "$suite" = 'alpine3.8' ]; then
+				# Alpine 3.9+ uses OpenSSL, but 3.8 still uses LibreSSL
+				sed -ri -e 's!(\s)openssl!\1libressl!g' "$version/$suite/$variant/Dockerfile"
+				# (matching whitespace to avoid "--with-openssl" being replaced with the non-existent "--with-libressl" flag)
+			fi
 		done
 	done
 
