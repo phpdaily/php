@@ -86,7 +86,7 @@ build_image "7.4-dev/stretch/cli/" "$VERSION_74-dev-cli-stretch"
 build_image "7.4-dev/stretch/fpm/" "$VERSION_74-dev-fpm-stretch"
 build_image "7.4-dev/stretch/zts/" "$VERSION_74-dev-zts-stretch"
 
-VERSION_73="7.3.7"
+VERSION_73="7.3.8"
 build_image "7.3-dev/alpine3.8/cli/" "7.3-dev"
 build_image "7.3-dev/alpine3.8/cli/" "$VERSION_73-dev-cli-alpine"
 build_image "7.3-dev/alpine3.8/fpm/" "$VERSION_73-dev-fpm-alpine"
