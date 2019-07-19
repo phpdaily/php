@@ -3,6 +3,11 @@ set -Eeuo pipefail
 
 # https://www.php.net/gpg-keys.php
 declare -A gpgKeys=(
+	# https://wiki.php.net/todo/php74
+	# petk & derick
+	# https://www.php.net/gpg-keys.php#gpg-7.4
+	[7.4]='42670A7FE4D0441C8E4632349E4FDC074A4EF02D 5A52880781F755608BF815FC910DEB46F53EA312'
+
 	# https://wiki.php.net/todo/php73
 	# cmb & stas
 	# https://www.php.net/gpg-keys.php#gpg-7.3
@@ -118,7 +123,7 @@ for version in "${versions[@]}"; do
 
 	dockerfiles=()
 
-	for suite in stretch jessie alpine{3.9,3.8}; do
+	for suite in buster stretch alpine{3.10,3.9}; do
 		[ -d "$version/$suite" ] || continue
 		alpineVer="${suite#alpine}"
 
@@ -148,11 +153,34 @@ for version in "${versions[@]}"; do
 			if [ "$variant" = 'apache' ]; then
 				cp -a apache2-foreground "$version/$suite/$variant/"
 			fi
-			if [ "$majorVersion" = '7' -a "$minorVersion" -lt '2' ] || [ "$suite" = 'jessie' ]; then
-				# argon2 password hashing is only supported in 7.2+ and stretch+ / alpine 3.8+
+			if [ "$majorVersion" = '7' -a "$minorVersion" -lt '2' ]; then
+				# argon2 password hashing is only supported in 7.2+
 				sed -ri \
-					-e '/##<argon2>##/,/##<\/argon2>##/d' \
+					-e '/##<argon2-stretch>##/,/##<\/argon2-stretch>##/d' \
 					-e '/argon2/d' \
+					"$version/$suite/$variant/Dockerfile"
+			elif [ "$suite" != 'stretch' ]; then
+				# and buster+ doesn't need to pull argon2 from stretch-backports
+				sed -ri \
+					-e '/##<argon2-stretch>##/,/##<\/argon2-stretch>##/d' \
+					"$version/$suite/$variant/Dockerfile"
+			fi
+			if [ "$majorVersion" = '7' -a "$minorVersion" -lt '4' ]; then
+				# oniguruma is part of mbstring in php 7.4+
+				sed -ri \
+					-e '/oniguruma-dev|libonig-dev/d' \
+					"$version/$suite/$variant/Dockerfile"
+			fi
+			if [ "$majorVersion" -ge '8' ]; then
+				# 8 and above no longer include pecl/pear (see https://github.com/docker-library/php/issues/846#issuecomment-505638494)
+				sed -ri \
+					-e '/pear |pearrc|pecl.*channel/d' \
+					"$version/$suite/$variant/Dockerfile"
+			fi
+			if [ "$majorVersion" != '7' ] || [ "$minorVersion" -lt '4' ]; then
+				# --with-pear is only relevant on PHP 7, and specifically only 7.4+ (see https://github.com/docker-library/php/issues/846#issuecomment-505638494)
+				sed -ri \
+					-e '/--with-pear/d' \
 					"$version/$suite/$variant/Dockerfile"
 			fi
 			if [ "$majorVersion" = '7' -a "$minorVersion" -lt '2' ]; then
@@ -168,27 +196,28 @@ for version in "${versions[@]}"; do
 			fi
 
 			# remove any _extra_ blank lines created by the deletions above
-			awk '
-				NF > 0 { blank = 0 }
-				NF == 0 { ++blank }
-				blank < 2 { print }
+			gawk '
+				{
+					if (NF == 0 || (NF == 1 && $1 == "\\")) {
+						blank++
+					}
+					else {
+						blank = 0
+					}
+
+					if (blank < 2) {
+						print
+					}
+				}
 			' "$version/$suite/$variant/Dockerfile" > "$version/$suite/$variant/Dockerfile.new"
 			mv "$version/$suite/$variant/Dockerfile.new" "$version/$suite/$variant/Dockerfile"
 
-			# automatic `-slim` for stretch
-			# TODO always add slim once jessie is removed
 			sed -ri \
-				-e 's!%%DEBIAN_TAG%%!'"${suite/stretch/stretch-slim}"'!' \
+				-e 's!%%DEBIAN_TAG%%!'"$suite-slim"'!' \
 				-e 's!%%DEBIAN_SUITE%%!'"$suite"'!' \
 				-e 's!%%ALPINE_VERSION%%!'"$alpineVer"'!' \
 				"$version/$suite/$variant/Dockerfile"
 			dockerfiles+=( "$version/$suite/$variant/Dockerfile" )
-
-			if [ "$suite" = 'alpine3.8' ]; then
-				# Alpine 3.9+ uses OpenSSL, but 3.8 still uses LibreSSL
-				sed -ri -e 's!(\s)openssl!\1libressl!g' "$version/$suite/$variant/Dockerfile"
-				# (matching whitespace to avoid "--with-openssl" being replaced with the non-existent "--with-libressl" flag)
-			fi
 		done
 	done
 
