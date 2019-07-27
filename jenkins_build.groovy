@@ -31,6 +31,36 @@ def generateJob(String path, String tagname) {
     }
 }
 
+def generateJobPushDescription() {
+    freeStyleJob("phpdaily/update-description") {
+        scm {
+            git("https://github.com/phpdaily/php.git")
+        }
+
+        logRotator {
+            numToKeep(5)
+        }
+
+        triggers {
+            cron('0 7 * * *')
+        }
+
+        wrappers {
+            credentialsBinding {
+                usernamePassword("DOCKER_USERNAME", "DOCKER_PASSWORD", "dockerio-registry")
+            }
+        }
+
+        environmentVariables {
+            env("DOCKER_IMAGE", "phpdaily/php")
+        }
+
+        steps {
+            shell("./push-hub-description.sh")
+        }
+    }
+}
+
 def version80 = "8.0.0"
 generateJob('8.0-dev/alpine3.9/cli/', '8.0-dev')
 generateJob('8.0-dev/alpine3.9/cli/', "$version80-dev-cli-alpine")
@@ -85,3 +115,5 @@ generateJob('7.1-dev/jessie/apache/', "$version71-dev-apache-jessie")
 generateJob('7.1-dev/jessie/cli/', "$version71-dev-cli-jessie")
 generateJob('7.1-dev/jessie/fpm/', "$version71-dev-fpm-jessie")
 generateJob('7.1-dev/jessie/zts/', "$version71-dev-zts-jessie")
+
+generateJobPushDescription()
