@@ -56,7 +56,7 @@ def generateJobPushDescription() {
         }
 
         steps {
-            shell("./push-hub-description.sh")
+            shell("cd ${env.WORKSPACE} && ./push-hub-description.sh")
         }
     }
 }
