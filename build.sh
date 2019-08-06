@@ -106,7 +106,7 @@ build_image "7.2-dev/stretch/cli/" "$VERSION_72-dev-cli-stretch"
 build_image "7.2-dev/stretch/fpm/" "$VERSION_72-dev-fpm-stretch"
 build_image "7.2-dev/stretch/zts/" "$VERSION_72-dev-zts-stretch"
 
-VERSION_71="7.1.31"
+VERSION_71="7.1.32"
 build_image "7.1-dev/alpine3.8/cli/" "7.1-dev"
 build_image "7.1-dev/alpine3.8/cli/" "$VERSION_71-dev-cli-alpine"
 build_image "7.1-dev/alpine3.8/fpm/" "$VERSION_71-dev-fpm-alpine"
