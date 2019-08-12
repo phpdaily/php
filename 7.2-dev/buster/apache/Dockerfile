@@ -195,7 +195,6 @@ RUN set -eux; \
 		ln -sT "/usr/include/$debMultiarch/curl" /usr/local/include/curl; \
 	fi; \
 	./buildconf --force; \
-	./buildconf --force; \
 	./configure \
 		--build="$gnuArch" \
 		--with-config-file-path="$PHP_INI_DIR" \
