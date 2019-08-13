@@ -118,6 +118,7 @@ RUN set -eux; \
 	; \
 	docker-php-source extract; \
 	cd /usr/src/php; \
+	gnuArch="$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)"; \
 	./buildconf --force; \
 	./configure \
 		--build="$gnuArch" \
