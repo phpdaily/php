@@ -136,7 +136,7 @@ build_image "7.2-dev/buster/cli/" "$VERSION_72-dev-cli-buster"
 build_image "7.2-dev/buster/fpm/" "$VERSION_72-dev-fpm-buster"
 build_image "7.2-dev/buster/zts/" "$VERSION_72-dev-zts-buster"
 
-VERSION_71="7.1.32"
+VERSION_71="7.1.33"
 build_image "7.1-dev/alpine3.9/cli/" "7.1-dev"
 build_image "7.1-dev/alpine3.8/cli/" "$VERSION_71-dev-cli-alpine3.8"
 build_image "7.1-dev/alpine3.8/fpm/" "$VERSION_71-dev-fpm-alpine3.8"
