@@ -55,15 +55,16 @@ RUN set -eux; \
 # Enable linker optimization (this sorts the hash buckets to improve cache locality, and is non-default)
 # Adds GNU HASH segments to generated executables (this is used if present, and is much faster than sysv hash; in this configuration, sysv hash is also generated)
 # https://github.com/docker-library/php/issues/272
-ENV PHP_CFLAGS="-fstack-protector-strong -fpic -fpie -O2"
+# -D_LARGEFILE_SOURCE and -D_FILE_OFFSET_BITS=64 (https://www.php.net/manual/en/intro.filesystem.php)
+ENV PHP_CFLAGS="-fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64"
 ENV PHP_CPPFLAGS="$PHP_CFLAGS"
 ENV PHP_LDFLAGS="-Wl,-O1 -Wl,--hash-style=both -pie"
 
 ENV GPG_KEYS 42670A7FE4D0441C8E4632349E4FDC074A4EF02D 5A52880781F755608BF815FC910DEB46F53EA312
 
-ENV PHP_VERSION 7.4.0beta4
-ENV PHP_URL="https://downloads.php.net/~derick/php-7.4.0beta4.tar.xz" PHP_ASC_URL="https://downloads.php.net/~derick/php-7.4.0beta4.tar.xz.asc"
-ENV PHP_SHA256="e715c5e64f3e64e3d8f65a9c425c6affdd2ddd5228b3b67a4faad167ca9dfe57" PHP_MD5=""
+ENV PHP_VERSION 7.4.0RC5
+ENV PHP_URL="https://downloads.php.net/~derick/php-7.4.0RC5.tar.xz" PHP_ASC_URL="https://downloads.php.net/~derick/php-7.4.0RC5.tar.xz.asc"
+ENV PHP_SHA256="329f32afe06f2ac627da9294e164b73c19329c430a3f105324faf1b344a896e1" PHP_MD5=""
 
 RUN set -eux; \
 	\
@@ -105,6 +106,7 @@ RUN set -eux; \
 		libedit-dev \
 		libsodium-dev \
 		libxml2-dev \
+		linux-headers \
 		oniguruma-dev \
 		openssl-dev \
 		sqlite-dev \
@@ -138,6 +140,9 @@ RUN set -eux; \
 		--with-password-argon2 \
 # https://wiki.php.net/rfc/libsodium
 		--with-sodium=shared \
+# always build against system sqlite3 (https://github.com/php/php-src/commit/6083a387a81dbbd66d6316a3a12a63f06d5f7109)
+		--with-pdo-sqlite=/usr \
+		--with-sqlite3=/usr \
 		\
 		--with-curl \
 		--with-libedit \

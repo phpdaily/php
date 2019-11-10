@@ -117,15 +117,16 @@ ENV PHP_EXTRA_CONFIGURE_ARGS --with-apxs2 --disable-cgi
 # Enable linker optimization (this sorts the hash buckets to improve cache locality, and is non-default)
 # Adds GNU HASH segments to generated executables (this is used if present, and is much faster than sysv hash; in this configuration, sysv hash is also generated)
 # https://github.com/docker-library/php/issues/272
-ENV PHP_CFLAGS="-fstack-protector-strong -fpic -fpie -O2"
+# -D_LARGEFILE_SOURCE and -D_FILE_OFFSET_BITS=64 (https://www.php.net/manual/en/intro.filesystem.php)
+ENV PHP_CFLAGS="-fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64"
 ENV PHP_CPPFLAGS="$PHP_CFLAGS"
 ENV PHP_LDFLAGS="-Wl,-O1 -Wl,--hash-style=both -pie"
 
 ENV GPG_KEYS CBAF69F173A0FEA4B537F470D66C9593118BCCB6 F38252826ACD957EF380D39F2F7956BC5DA04B5D
 
-ENV PHP_VERSION 7.3.9
-ENV PHP_URL="https://www.php.net/get/php-7.3.9.tar.xz/from/this/mirror" PHP_ASC_URL="https://www.php.net/get/php-7.3.9.tar.xz.asc/from/this/mirror"
-ENV PHP_SHA256="4007f24a39822bef2805b75c625551d30be9eeed329d52eb0838fa5c1b91c1fd" PHP_MD5=""
+ENV PHP_VERSION 7.3.11
+ENV PHP_URL="https://www.php.net/get/php-7.3.11.tar.xz/from/this/mirror" PHP_ASC_URL="https://www.php.net/get/php-7.3.11.tar.xz.asc/from/this/mirror"
+ENV PHP_SHA256="657cf6464bac28e9490c59c07a2cf7bb76c200f09cfadf6e44ea64e95fa01021" PHP_MD5=""
 
 RUN set -eux; \
 	\
@@ -226,6 +227,9 @@ RUN set -eux; \
 		--with-password-argon2 \
 # https://wiki.php.net/rfc/libsodium
 		--with-sodium=shared \
+# always build against system sqlite3 (https://github.com/php/php-src/commit/6083a387a81dbbd66d6316a3a12a63f06d5f7109)
+		--with-pdo-sqlite=/usr \
+		--with-sqlite3=/usr \
 		\
 		--with-curl \
 		--with-libedit \
