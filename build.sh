@@ -82,7 +82,7 @@ build_image "8.0-dev/buster/cli/" "$VERSION_80-dev-cli-buster"
 build_image "8.0-dev/buster/fpm/" "$VERSION_80-dev-fpm-buster"
 build_image "8.0-dev/buster/zts/" "$VERSION_80-dev-zts-buster"
 
-VERSION_74="7.4.0"
+VERSION_74="7.4.1"
 build_image "7.4-dev/alpine3.9/cli/" "latest"
 build_image "7.4-dev/alpine3.9/cli/" "7.4-dev"
 build_image "7.4-dev/alpine3.8/cli/" "$VERSION_74-dev-cli-alpine3.8"
