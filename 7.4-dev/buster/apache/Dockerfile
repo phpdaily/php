@@ -126,7 +126,7 @@ ENV PHP_LDFLAGS="-Wl,-O1 -Wl,--hash-style=both -pie"
 ENV GPG_KEYS 42670A7FE4D0441C8E4632349E4FDC074A4EF02D 5A52880781F755608BF815FC910DEB46F53EA312
 
 ENV PHP_VERSION 7.4.1-dev
-ENV PHP_URL="https://downloads.php.net/~derick/php-7.4.1beta1.tar.xz" PHP_ASC_URL="https://downloads.php.net/~derick/php-7.4.1beta1.tar.xz.asc"
+ENV PHP_URL="" PHP_ASC_URL=""
 ENV PHP_SHA256="399727399ac3c98c981e623ce2f4e55940ee1f99829cfcbca914d878a6910d30" PHP_MD5=""
 
 RUN set -eux; \
@@ -139,7 +139,7 @@ RUN set -eux; \
 	mkdir -p /usr/src; \
 	cd /usr/src; \
 	\
-	curl -fsSL -o php.tar.xz "$PHP_URL"; \
+	# curl -fsSL -o php.tar.xz "$PHP_URL"; \
 	\
 	if [ -n "$PHP_SHA256" ]; then \
 		echo "$PHP_SHA256 *php.tar.xz" | sha256sum -c -; \
