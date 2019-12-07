@@ -2,8 +2,8 @@
 set -Eeuo pipefail
 
 declare -A aliases=(
-	[7.3]='7 latest'
-	[7.4-rc]='rc'
+	[7.4]='7 latest'
+	[7.5-rc]='rc'
 )
 
 defaultDebianSuite='buster'
@@ -126,9 +126,7 @@ for version in "${versions[@]}"; do
 			# 7.2 no longer supports s390x
 			# #error "Not yet implemented"
 			# https://github.com/docker-library/php/pull/487#issue-254755661
-			if [[ "$version" = 7.* ]] && [ "$version" != '7.1' ]; then
-				variantArches="$(echo " $variantArches " | sed -r -e 's/ s390x//g')"
-			fi
+			variantArches="$(echo " $variantArches " | sed -r -e 's/ s390x//g')"
 
 			echo
 			cat <<-EOE
