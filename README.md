@@ -25,20 +25,20 @@ Nightly build for PHP docker image development branches
 
 ### 7.4
 
-* [7.4.4-dev-cli-alpine, 7.4-dev, latest](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.9/cli)
-* [7.4.4-dev-fpm-alpine](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.9/fpm)
-* [7.4.4-dev-zts-alpine](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.9/zts)
-* [7.4.4-dev-cli-alpine3.10](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.10/cli)
-* [7.4.4-dev-fpm-alpine3.10](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.10/fpm)
-* [7.4.4-dev-zts-alpine3.10](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.10/zts)
-* [7.4.4-dev-apache-stretch](https://github.com/phpdaily/php/tree/master/7.4-dev/stretch/apache)
-* [7.4.4-dev-cli-stretch](https://github.com/phpdaily/php/tree/master/7.4-dev/stretch/cli)
-* [7.4.4-dev-fpm-stretch](https://github.com/phpdaily/php/tree/master/7.4-dev/stretch/fpm)
-* [7.4.4-dev-zts-stretch](https://github.com/phpdaily/php/tree/master/7.4-dev/stretch/zts)
-* [7.4.4-dev-apache-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/apache)
-* [7.4.4-dev-cli-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/cli)
-* [7.4.4-dev-fpm-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/fpm)
-* [7.4.4-dev-zts-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/zts)
+* [7.4.5-dev-cli-alpine, 7.4-dev, latest](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.9/cli)
+* [7.4.5-dev-fpm-alpine](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.9/fpm)
+* [7.4.5-dev-zts-alpine](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.9/zts)
+* [7.4.5-dev-cli-alpine3.10](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.10/cli)
+* [7.4.5-dev-fpm-alpine3.10](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.10/fpm)
+* [7.4.5-dev-zts-alpine3.10](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.10/zts)
+* [7.4.5-dev-apache-stretch](https://github.com/phpdaily/php/tree/master/7.4-dev/stretch/apache)
+* [7.4.5-dev-cli-stretch](https://github.com/phpdaily/php/tree/master/7.4-dev/stretch/cli)
+* [7.4.5-dev-fpm-stretch](https://github.com/phpdaily/php/tree/master/7.4-dev/stretch/fpm)
+* [7.4.5-dev-zts-stretch](https://github.com/phpdaily/php/tree/master/7.4-dev/stretch/zts)
+* [7.4.5-dev-apache-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/apache)
+* [7.4.5-dev-cli-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/cli)
+* [7.4.5-dev-fpm-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/fpm)
+* [7.4.5-dev-zts-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/zts)
 
 ### 7.3
 
