@@ -58,8 +58,8 @@ for version in "${versions[@]}"; do
 			.[$version].source[]
 			| select(.filename | endswith(".xz"))
 			|
-				"https://www.php.net/get/" + .filename + "/from/this/mirror",
-				"https://www.php.net/get/" + .filename + ".asc/from/this/mirror",
+				"https://www.php.net/distributions/" + .filename,
+				"https://www.php.net/distributions/" + .filename + ".asc",
 				.sha256 // "",
 				.md5 // ""
 		) ]
@@ -116,7 +116,7 @@ for version in "${versions[@]}"; do
 
 	dockerfiles=()
 
-	for suite in buster stretch alpine{3.10,3.9}; do
+	for suite in buster stretch alpine{3.11,3.10}; do
 		[ -d "$version/$suite" ] || continue
 		alpineVer="${suite#alpine}"
 
