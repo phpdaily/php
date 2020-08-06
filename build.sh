@@ -100,7 +100,7 @@ build_image "7.4-dev/buster/cli/" "$VERSION_74-dev-cli-buster"
 build_image "7.4-dev/buster/fpm/" "$VERSION_74-dev-fpm-buster"
 build_image "7.4-dev/buster/zts/" "$VERSION_74-dev-zts-buster"
 
-VERSION_73="7.3.21"
+VERSION_73="7.3.22"
 build_image "7.3-dev/alpine3.9/cli/" "7.3-dev"
 build_image "7.3-dev/alpine3.8/cli/" "$VERSION_73-dev-cli-alpine3.8"
 build_image "7.3-dev/alpine3.8/fpm/" "$VERSION_73-dev-fpm-alpine3.8"
