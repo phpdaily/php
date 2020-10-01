@@ -116,7 +116,7 @@ generateJob('7.3-dev/buster/cli/', "$version73-dev-cli-buster")
 generateJob('7.3-dev/buster/fpm/', "$version73-dev-fpm-buster")
 generateJob('7.3-dev/buster/zts/', "$version73-dev-zts-buster")
 
-def version72 = "7.2.34"
+def version72 = "7.2.35"
 generateJob('7.2-dev/alpine3.9/cli/', '7.2-dev')
 generateJob('7.2-dev/alpine3.8/cli/', "$version72-dev-cli-alpine3.8")
 generateJob('7.2-dev/alpine3.8/fpm/', "$version72-dev-fpm-alpine3.8")
