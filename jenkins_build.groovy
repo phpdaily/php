@@ -61,7 +61,7 @@ def generateJobPushDescription() {
     }
 }
 
-def version80 = "8.0.0"
+def version80 = "8.0.1"
 generateJob('8.0-dev/alpine3.9/cli/', '8.0-dev')
 generateJob('8.0-dev/alpine3.9/cli/', "$version80-dev-cli-alpine")
 generateJob('8.0-dev/alpine3.9/fpm/', "$version80-dev-fpm-alpine")
