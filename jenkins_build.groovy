@@ -61,8 +61,18 @@ def generateJobPushDescription() {
     }
 }
 
+def version81 = "8.1.0"
+generateJob('8.1-dev/alpine3.12/cli/', 'latest')
+generateJob('8.1-dev/alpine3.12/cli/', '8.1-dev')
+generateJob('8.1-dev/alpine3.12/cli/', "$version81-dev-cli-alpine3.12")
+generateJob('8.1-dev/alpine3.12/fpm/', "$version81-dev-fpm-alpine3.12")
+generateJob('8.1-dev/alpine3.12/zts/', "$version81-dev-zts-alpine3.12")
+generateJob('8.1-dev/buster/apache/', "$version81-dev-apache-buster")
+generateJob('8.1-dev/buster/cli/', "$version81-dev-cli-buster")
+generateJob('8.1-dev/buster/fpm/', "$version81-dev-fpm-buster")
+generateJob('8.1-dev/buster/zts/', "$version81-dev-zts-buster")
+
 def version80 = "8.0.1"
-generateJob('8.0-dev/alpine3.9/cli/', 'latest')
 generateJob('8.0-dev/alpine3.9/cli/', '8.0-dev')
 generateJob('8.0-dev/alpine3.9/cli/', "$version80-dev-cli-alpine")
 generateJob('8.0-dev/alpine3.9/fpm/', "$version80-dev-fpm-alpine")
@@ -70,6 +80,9 @@ generateJob('8.0-dev/alpine3.9/zts/', "$version80-dev-zts-alpine")
 generateJob('8.0-dev/alpine3.10/cli/', "$version80-dev-cli-alpine3.10")
 generateJob('8.0-dev/alpine3.10/fpm/', "$version80-dev-fpm-alpine3.10")
 generateJob('8.0-dev/alpine3.10/zts/', "$version80-dev-zts-alpine3.10")
+generateJob('8.0-dev/alpine3.12/cli/', "$version80-dev-cli-alpine3.12")
+generateJob('8.0-dev/alpine3.12/fpm/', "$version80-dev-fpm-alpine3.12")
+generateJob('8.0-dev/alpine3.12/zts/', "$version80-dev-zts-alpine3.12")
 generateJob('8.0-dev/stretch/apache/', "$version80-dev-apache-stretch")
 generateJob('8.0-dev/stretch/cli/', "$version80-dev-cli-stretch")
 generateJob('8.0-dev/stretch/fpm/', "$version80-dev-fpm-stretch")
