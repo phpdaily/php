@@ -4,7 +4,7 @@
 # PLEASE DO NOT EDIT IT DIRECTLY.
 #
 
-FROM alpine:3.11
+FROM alpine:3.13
 
 # dependencies required for running "phpize"
 # these get automatically installed and removed by "docker-php-ext-*" (unless they're already installed)
@@ -46,8 +46,6 @@ RUN set -eux; \
 	chown www-data:www-data /var/www/html; \
 	chmod 777 /var/www/html
 
-ENV PHP_EXTRA_CONFIGURE_ARGS --enable-maintainer-zts --disable-cgi
-
 # Apply stack smash protection to functions using local buffers and alloca()
 # Make PHP's main executable position-independent (improves ASLR security mechanism, and has no performance impact on x86_64)
 # Enable optimization (-O2)
@@ -58,11 +56,11 @@ ENV PHP_CFLAGS="-fstack-protector-strong -fpic -fpie -O2 -D_LARGEFILE_SOURCE -D_
 ENV PHP_CPPFLAGS="$PHP_CFLAGS"
 ENV PHP_LDFLAGS="-Wl,-O1 -pie"
 
-ENV GPG_KEYS 42670A7FE4D0441C8E4632349E4FDC074A4EF02D 5A52880781F755608BF815FC910DEB46F53EA312
+ENV GPG_KEYS CBAF69F173A0FEA4B537F470D66C9593118BCCB6 F38252826ACD957EF380D39F2F7956BC5DA04B5D
 
-ENV PHP_VERSION 7.4.13
-ENV PHP_URL="https://www.php.net/distributions/php-7.4.13.tar.xz" PHP_ASC_URL="https://www.php.net/distributions/php-7.4.13.tar.xz.asc"
-ENV PHP_SHA256="aead303e3abac23106529560547baebbedba0bb2943b91d5aa08fff1f41680f4"
+ENV PHP_VERSION 7.3.27
+ENV PHP_URL="https://www.php.net/distributions/php-7.3.27.tar.xz" PHP_ASC_URL="https://www.php.net/distributions/php-7.3.27.tar.xz.asc"
+ENV PHP_SHA256="65f616e2d5b6faacedf62830fa047951b0136d5da34ae59e6744cbaf5dca148d"
 
 RUN set -eux; \
 	\
@@ -101,8 +99,6 @@ RUN set -eux; \
 		libedit-dev \
 		libsodium-dev \
 		libxml2-dev \
-		linux-headers \
-		oniguruma-dev \
 		openssl-dev \
 		sqlite-dev \
 	; \
@@ -146,9 +142,6 @@ RUN set -eux; \
 		--with-libedit \
 		--with-openssl \
 		--with-zlib \
-		\
-# in PHP 7.4+, the pecl/pear installers are officially deprecated (requiring an explicit "--with-pear")
-		--with-pear \
 		\
 # bundled pcre does not support JIT on s390x
 # https://manpages.debian.org/stretch/libpcre3-dev/pcrejit.3.en.html#AVAILABILITY_OF_JIT_SUPPORT
