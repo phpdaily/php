@@ -65,7 +65,7 @@ build_image() {
     fi
 }
 
-VERSION_80="8.0.4"
+VERSION_80="8.0.6"
 build_image "8.0-dev/alpine3.9/cli/" "8.0-dev"
 build_image "8.0-dev/alpine3.9/cli/" "$VERSION_80-dev-cli-alpine"
 build_image "8.0-dev/alpine3.9/fpm/" "$VERSION_80-dev-fpm-alpine"
