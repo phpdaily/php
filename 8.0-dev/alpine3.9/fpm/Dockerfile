@@ -125,9 +125,6 @@ RUN set -xe \
 		--with-config-file-path="$PHP_INI_DIR" \
 		--with-config-file-scan-dir="$PHP_INI_DIR/conf.d" \
 		\
-# Disable PEAR because if deprecation `each` function remove in 8.0
-		--without-pear \
-		\
 # make sure invalid --configure-flags are fatal errors intead of just warnings
 		--enable-option-checking=fatal \
 		\
