@@ -18,7 +18,7 @@ case "$1" in
 	extract)
 		mkdir -p "$dir"
 		if [ ! -f "$dir/.docker-extracted" ]; then
-			git clone --depth 1 -b PHP-7.4 https://git.php.net/repository/php-src.git "$dir"
+ 			git clone --depth 1 -b PHP-7.4 https://git.php.net/repository/php-src.git "$dir"
 			touch "$dir/.docker-extracted"
 		fi
 		;;
