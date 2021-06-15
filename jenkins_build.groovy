@@ -93,7 +93,7 @@ generateJob('8.0-dev/buster/fpm/', "$version80-dev-fpm-buster")
 generateJob('8.0-dev/buster/zts/', "$version80-dev-zts-buster")
 
 def version74 = "7.4.21"
-generateJob('7.4-dev/alpine3.9/cli/', '7.4-dev')
+generateJob('7.4-dev/alpine3.12/cli/', '7.4-dev')
 generateJob('7.4-dev/alpine3.12/cli/', "7.4-dev-alpine3.12")
 generateJob('7.4-dev/alpine3.12/cli/', "$version74-dev-cli-alpine3.12")
 generateJob('7.4-dev/alpine3.12/fpm/', "$version74-dev-fpm-alpine3.12")
