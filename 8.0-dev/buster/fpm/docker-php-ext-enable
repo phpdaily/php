@@ -48,11 +48,7 @@ for module; do
 	if [ -z "$module" ]; then
 		continue
 	fi
-	if [ -f "$module.so" ] && ! [ -f "$module" ]; then
-		# allow ".so" to be optional
-		module="$module.so"
-	fi
-	if ! [ -f "$module" ]; then
+	if ! [ -f "$module" ] && ! [ -f "$module.so" ]; then
 		echo >&2 "error: '$module' does not exist"
 		echo >&2
 		usage >&2
@@ -84,10 +80,13 @@ if [ "$pm" = 'apk' ]; then
 fi
 
 for module in $modules; do
-	if readelf --wide --syms "$module" | grep -q ' zend_extension_entry$'; then
+	moduleFile="$module"
+	if [ -f "$module.so" ] && ! [ -f "$module" ]; then
+		moduleFile="$module.so"
+	fi
+	if readelf --wide --syms "$moduleFile" | grep -q ' zend_extension_entry$'; then
 		# https://wiki.php.net/internals/extensions#loading_zend_extensions
-		absModule="$(readlink -f "$module")"
-		line="zend_extension=$absModule"
+		line="zend_extension=$module"
 	else
 		line="extension=$module"
 	fi
@@ -103,8 +102,16 @@ for module in $modules; do
 		continue
 	fi
 
-	ini="$PHP_INI_DIR/conf.d/${iniName:-"docker-php-ext-$ext.ini"}"
-	if ! grep -q "$line" "$ini" 2>/dev/null; then
+	case "$iniName" in
+		/*)
+			# allow an absolute path
+			ini="$iniName"
+			;;
+		*)
+			ini="$PHP_INI_DIR/conf.d/${iniName:-"docker-php-ext-$ext.ini"}"
+			;;
+	esac
+	if ! grep -qFx -e "$line" -e "$line.so" "$ini" 2>/dev/null; then
 		echo "$line" >> "$ini"
 	fi
 done
