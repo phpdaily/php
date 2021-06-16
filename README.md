@@ -8,10 +8,11 @@ Nightly build for PHP docker image development branches
 
 ### 8.1
 
-* [8.1.0-dev-cli-alpine, 8.1-dev](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.12/cli)
-* [8.1.0-dev-cli-alpine3.12](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.12/cli)
+* [8.1-dev, 8.1-dev3.12, 8.1.0-dev-cli-alpine3.12](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.12/cli)
 * [8.1.0-dev-fpm-alpine3.12](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.12/fpm)
 * [8.1.0-dev-zts-alpine3.12](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.12/zts)
+* [8.1-dev3.13, 8.1.0-dev-cli-alpine3.13](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.13/cli)
+* [8.1.0-dev-fpm-alpine3.13](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.13/fpm)
 * [8.1.0-dev-apache-buster](https://github.com/phpdaily/php/tree/master/8.1-dev/buster/apache)
 * [8.1.0-dev-cli-buster](https://github.com/phpdaily/php/tree/master/8.1-dev/buster/cli)
 * [8.1.0-dev-fpm-buster](https://github.com/phpdaily/php/tree/master/8.1-dev/buster/fpm)
@@ -19,19 +20,10 @@ Nightly build for PHP docker image development branches
 
 ### 8.0
 
-* [8.0.7-dev-cli-alpine, 8.0-dev](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.9/cli)
-* [8.0.7-dev-fpm-alpine](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.9/fpm)
-* [8.0.7-dev-zts-alpine](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.9/zts)
-* [8.0.7-dev-cli-alpine3.10](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.10/cli)
-* [8.0.7-dev-fpm-alpine3.10](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.10/fpm)
-* [8.0.7-dev-zts-alpine3.10](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.10/zts)
-* [8.0.7-dev-cli-alpine3.12](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.12/cli)
+* [latest, 8.0-dev, 8.0-dev-alpine3.12, 8.0.7-dev-cli-alpine](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.12/cli)
 * [8.0.7-dev-fpm-alpine3.12](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.12/fpm)
-* [8.0.7-dev-zts-alpine3.12](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.12/zts)
-* [8.0.7-dev-apache-stretch](https://github.com/phpdaily/php/tree/master/8.0-dev/stretch/apache)
-* [8.0.7-dev-cli-stretch](https://github.com/phpdaily/php/tree/master/8.0-dev/stretch/cli)
-* [8.0.7-dev-fpm-stretch](https://github.com/phpdaily/php/tree/master/8.0-dev/stretch/fpm)
-* [8.0.7-dev-zts-stretch](https://github.com/phpdaily/php/tree/master/8.0-dev/stretch/zts)
+* [8.0-dev-alpine3.13, 8.0.7-dev-cli-alpine3.13](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.13/cli)
+* [8.0.7-dev-fpm-alpine3.13](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.13/fpm)
 * [8.0.7-dev-apache-buster](https://github.com/phpdaily/php/tree/master/8.0-dev/buster/apache)
 * [8.0.7-dev-cli-buster](https://github.com/phpdaily/php/tree/master/8.0-dev/buster/cli)
 * [8.0.7-dev-fpm-buster](https://github.com/phpdaily/php/tree/master/8.0-dev/buster/fpm)
@@ -39,16 +31,12 @@ Nightly build for PHP docker image development branches
 
 ### 7.4
 
-* [7.4.21-dev-cli-alpine, 7.4-dev, latest](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.9/cli)
-* [7.4.21-dev-fpm-alpine](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.9/fpm)
-* [7.4.21-dev-zts-alpine](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.9/zts)
-* [7.4.21-dev-cli-alpine3.10](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.10/cli)
-* [7.4.21-dev-fpm-alpine3.10](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.10/fpm)
-* [7.4.21-dev-zts-alpine3.10](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.10/zts)
-* [7.4.21-dev-apache-stretch](https://github.com/phpdaily/php/tree/master/7.4-dev/stretch/apache)
-* [7.4.21-dev-cli-stretch](https://github.com/phpdaily/php/tree/master/7.4-dev/stretch/cli)
-* [7.4.21-dev-fpm-stretch](https://github.com/phpdaily/php/tree/master/7.4-dev/stretch/fpm)
-* [7.4.21-dev-zts-stretch](https://github.com/phpdaily/php/tree/master/7.4-dev/stretch/zts)
+* [7.4-dev, 7.4-dev-alpine3.12, 7.4.21-dev-cli-alpine3.12](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.12/cli)
+* [7.4.21-dev-fpm-alpine3.12](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.12/fpm)
+* [7.4.21-dev-zts-alpine3.12](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.12/zts)
+* [7.4-dev-alpine3.13, 7.4.21-dev-cli-alpine3.13](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.13/cli)
+* [7.4.21-dev-fpm-alpine3.13](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.13/fpm)
+* [7.4.21-dev-zts-alpine3.13](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.13/zts)
 * [7.4.21-dev-apache-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/apache)
 * [7.4.21-dev-cli-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/cli)
 * [7.4.21-dev-fpm-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/fpm)
