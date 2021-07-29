@@ -22,16 +22,16 @@ Nightly build for PHP docker image development branches
 
 ### 8.0
 
-* [latest, 8.0-dev, 8.0-dev-alpine3.12, 8.0.9-dev-cli-alpine](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.12/cli)
-* [8.0.9-dev-fpm-alpine3.12](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.12/fpm)
-* [8.0-dev-alpine3.13, 8.0.9-dev-cli-alpine3.13](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.13/cli)
-* [8.0.9-dev-fpm-alpine3.13](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.13/fpm)
-* [8.0-dev-alpine3.14, 8.0.9-dev-cli-alpine3.14](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.14/cli)
-* [8.0.9-dev-fpm-alpine3.14](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.14/fpm)
-* [8.0.9-dev-apache-buster](https://github.com/phpdaily/php/tree/master/8.0-dev/buster/apache)
-* [8.0.9-dev-cli-buster](https://github.com/phpdaily/php/tree/master/8.0-dev/buster/cli)
-* [8.0.9-dev-fpm-buster](https://github.com/phpdaily/php/tree/master/8.0-dev/buster/fpm)
-* [8.0.9-dev-zts-buster](https://github.com/phpdaily/php/tree/master/8.0-dev/buster/zts)
+* [latest, 8.0-dev, 8.0-dev-alpine3.12, 8.0.10-dev-cli-alpine](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.12/cli)
+* [8.0.10-dev-fpm-alpine3.12](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.12/fpm)
+* [8.0-dev-alpine3.13, 8.0.10-dev-cli-alpine3.13](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.13/cli)
+* [8.0.10-dev-fpm-alpine3.13](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.13/fpm)
+* [8.0-dev-alpine3.14, 8.0.10-dev-cli-alpine3.14](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.14/cli)
+* [8.0.10-dev-fpm-alpine3.14](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.14/fpm)
+* [8.0.10-dev-apache-buster](https://github.com/phpdaily/php/tree/master/8.0-dev/buster/apache)
+* [8.0.10-dev-cli-buster](https://github.com/phpdaily/php/tree/master/8.0-dev/buster/cli)
+* [8.0.10-dev-fpm-buster](https://github.com/phpdaily/php/tree/master/8.0-dev/buster/fpm)
+* [8.0.10-dev-zts-buster](https://github.com/phpdaily/php/tree/master/8.0-dev/buster/zts)
 
 ### 7.4
 
