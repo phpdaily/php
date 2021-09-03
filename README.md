@@ -35,19 +35,19 @@ Nightly build for PHP docker image development branches
 
 ### 7.4
 
-* [7.4-dev, 7.4-dev-alpine3.12, 7.4.23-dev-cli-alpine3.12](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.12/cli)
-* [7.4.23-dev-fpm-alpine3.12](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.12/fpm)
-* [7.4.23-dev-zts-alpine3.12](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.12/zts)
-* [7.4-dev-alpine3.13, 7.4.23-dev-cli-alpine3.13](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.13/cli)
-* [7.4.23-dev-fpm-alpine3.13](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.13/fpm)
-* [7.4.23-dev-zts-alpine3.13](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.13/zts)
-* [7.4-dev-alpine3.14, 7.4.23-dev-cli-alpine3.14](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.14/cli)
-* [7.4.23-dev-fpm-alpine3.14](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.14/fpm)
-* [7.4.23-dev-zts-alpine3.14](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.14/zts)
-* [7.4.23-dev-apache-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/apache)
-* [7.4.23-dev-cli-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/cli)
-* [7.4.23-dev-fpm-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/fpm)
-* [7.4.23-dev-zts-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/zts)
+* [7.4-dev, 7.4-dev-alpine3.12, 7.4.24-dev-cli-alpine3.12](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.12/cli)
+* [7.4.24-dev-fpm-alpine3.12](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.12/fpm)
+* [7.4.24-dev-zts-alpine3.12](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.12/zts)
+* [7.4-dev-alpine3.13, 7.4.24-dev-cli-alpine3.13](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.13/cli)
+* [7.4.24-dev-fpm-alpine3.13](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.13/fpm)
+* [7.4.24-dev-zts-alpine3.13](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.13/zts)
+* [7.4-dev-alpine3.14, 7.4.24-dev-cli-alpine3.14](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.14/cli)
+* [7.4.24-dev-fpm-alpine3.14](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.14/fpm)
+* [7.4.24-dev-zts-alpine3.14](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.14/zts)
+* [7.4.24-dev-apache-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/apache)
+* [7.4.24-dev-cli-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/cli)
+* [7.4.24-dev-fpm-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/fpm)
+* [7.4.24-dev-zts-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/zts)
 
 ### 7.3
 
