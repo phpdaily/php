@@ -75,5 +75,5 @@ jobs:
           no-cache: true
           push: true
           tags: |
-            phpdaily/php:8.1-${{ matrix.sapi }}-${{ matrix.alpine }}
+            phpdaily/php:8.1-${{ matrix.sapi }}-${{ matrix.ubuntu }}
             ${{ env.tag_generic_platform }}
