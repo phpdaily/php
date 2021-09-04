@@ -29,7 +29,9 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - run: echo "tag_generic_version=phpdaily/php:7.4" >> $GITHUB_ENV
+      - run: |
+          echo "tag_generic_version=phpdaily/php:7.4" >> $GITHUB_ENV
+          echo "tag_short_platform=phpdaily/php:7.4-alpine" >> $GITHUB_ENV
         if: ${{ matrix.alpine == 'alpine3.14' && matrix.sapi == 'cli' }}
       - run: echo "tag_generic_platform=phpdaily/php:7.4-${{ matrix.alpine }}" >> $GITHUB_ENV
         if: ${{ matrix.sapi == 'cli' }}
@@ -42,6 +44,7 @@ jobs:
           tags: |
             phpdaily/php:7.4-${{ matrix.sapi }}-${{ matrix.alpine }}
             ${{ env.tag_generic_version }}
+            ${{ env.tag_short_platform }}
             ${{ env.tag_generic_platform }}
 
   build-ubuntu:

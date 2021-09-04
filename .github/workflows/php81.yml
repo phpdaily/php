@@ -32,6 +32,7 @@ jobs:
       - run: |
           echo "tag_latest=phpdaily/php:latest" >> $GITHUB_ENV
           echo "tag_generic_version=phpdaily/php:8.1" >> $GITHUB_ENV
+          echo "tag_short_platform=phpdaily/php:8.1-alpine" >> $GITHUB_ENV
         if: ${{ matrix.alpine == 'alpine3.14' && matrix.sapi == 'cli' }}
       - run: echo "tag_generic_platform=phpdaily/php:8.1-${{ matrix.alpine }}" >> $GITHUB_ENV
         if: ${{ matrix.sapi == 'cli' }}
@@ -45,6 +46,7 @@ jobs:
             phpdaily/php:8.1-${{ matrix.sapi }}-${{ matrix.alpine }}
             ${{ env.tag_latest }}
             ${{ env.tag_generic_version }}
+            ${{ env.tag_short_platform }}
             ${{ env.tag_generic_platform }}
 
   build-ubuntu:
