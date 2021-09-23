@@ -8,7 +8,7 @@ Nightly build for PHP docker image development branches
 
 **WARNING**: Docker image tags are going to be updated soon. From the October 1st, image tags will no longer contain minor version.
 
-New tags are now created (https://github.com/phpdaily/php/tree/github-actions#supported-tags-and-respective-dockerfile-links).
+New tags are now created (https://github.com/phpdaily/php#supported-tags-and-respective-dockerfile-links).
 
 ## Supported tags and respective Dockerfile links
 
