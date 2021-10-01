@@ -12,6 +12,19 @@ New tags are now created (https://github.com/phpdaily/php#supported-tags-and-res
 
 ## Supported tags and respective Dockerfile links
 
+### 8.2
+
+* [8.2, 8.2-alpine, 8.2-alpine3.12, 8.2-cli-alpine3.12](https://github.com/phpdaily/php/tree/master/8.2-dev/alpine3.12/cli)
+* [8.2-fpm-alpine3.12](https://github.com/phpdaily/php/tree/master/8.2-dev/alpine3.12/fpm)
+* [8.2-cli-alpine3.13](https://github.com/phpdaily/php/tree/master/8.2-dev/alpine3.13/cli)
+* [8.2-fpm-alpine3.13](https://github.com/phpdaily/php/tree/master/8.2-dev/alpine3.13/fpm)
+* [8.2-cli-alpine3.14](https://github.com/phpdaily/php/tree/master/8.2-dev/alpine3.14/cli)
+* [8.2-fpm-alpine3.14](https://github.com/phpdaily/php/tree/master/8.2-dev/alpine3.14/fpm)
+* [8.2-buster, 8.2-cli-buster](https://github.com/phpdaily/php/tree/master/8.2-dev/buster/cli)
+* [8.2-apache-buster](https://github.com/phpdaily/php/tree/master/8.2-dev/buster/apache)
+* [8.2-fpm-buster](https://github.com/phpdaily/php/tree/master/8.2-dev/buster/fpm)
+* [8.2-zts-buster](https://github.com/phpdaily/php/tree/master/8.2-dev/buster/zts)
+
 ### 8.1
 
 * [8.1, 8.1-alpine, 8.1-alpine3.12, 8.1-cli-alpine3.12](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.12/cli)
