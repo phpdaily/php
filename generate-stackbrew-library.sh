@@ -6,11 +6,11 @@ declare -A aliases=(
 	[8.0]='8 latest'
 )
 
-defaultDebianSuite='buster'
+defaultDebianSuite='bullseye'
 declare -A debianSuites=(
-	#[7.4-rc]='buster'
+	#[7.4]='buster'
 )
-defaultAlpineVersion='3.13'
+defaultAlpineVersion='3.14'
 declare -A alpineVersions=(
 	# /usr/src/php/ext/openssl/openssl.c:551:12: error: static declaration of 'RSA_set0_key' follows non-static declaration
 	# https://github.com/docker-library/php/pull/702#issuecomment-413341743
