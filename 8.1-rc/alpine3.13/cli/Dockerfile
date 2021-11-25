@@ -58,9 +58,9 @@ ENV PHP_LDFLAGS="-Wl,-O1 -pie"
 
 ENV GPG_KEYS 528995BFEDFBA7191D46839EF9BA0ADA31CBD89E 39B641343D8C104B2B146DC3F9C39DC0B9698544 F1F692238FBC1666E5A5CCD4199F9DFEF6FFBAFD
 
-ENV PHP_VERSION 8.1.0RC3
-ENV PHP_URL="https://downloads.php.net/~ramsey/php-8.1.0RC3.tar.xz" PHP_ASC_URL="https://downloads.php.net/~ramsey/php-8.1.0RC3.tar.xz.asc"
-ENV PHP_SHA256="0fe231652c8bd9920533046ddcb10a770aa4efa9c1cea494c1ab442c1e4bfef6"
+ENV PHP_VERSION 8.1.0RC6
+ENV PHP_URL="https://downloads.php.net/~ramsey/php-8.1.0RC6.tar.xz" PHP_ASC_URL="https://downloads.php.net/~ramsey/php-8.1.0RC6.tar.xz.asc"
+ENV PHP_SHA256="e7273a019aec824fd98e8f8ab071e7a2a37e681cc788a63c3092765dca479268"
 
 RUN set -eux; \
 	\
@@ -152,13 +152,18 @@ RUN set -eux; \
 # bundled pcre does not support JIT on s390x
 # https://manpages.debian.org/bullseye/libpcre3-dev/pcrejit.3.en.html#AVAILABILITY_OF_JIT_SUPPORT
 		$(test "$gnuArch" = 's390x-linux-musl' && echo '--without-pcre-jit') \
-		\
-		${PHP_EXTRA_CONFIGURE_ARGS:-} \
 	; \
 	make -j "$(nproc)"; \
 	find -type f -name '*.a' -delete; \
 	make install; \
-	find /usr/local/bin /usr/local/sbin -type f -perm +0111 -exec strip --strip-all '{}' + || true; \
+	find \
+		/usr/local \
+		-type f \
+		-perm '/0111' \
+		-exec sh -euxc ' \
+			strip --strip-all "$@" || : \
+		' -- '{}' + \
+	; \
 	make clean; \
 	\
 # https://github.com/docker-library/php/issues/692 (copy default example "php.ini" files somewhere easily discoverable)
