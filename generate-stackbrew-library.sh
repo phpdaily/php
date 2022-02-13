@@ -3,14 +3,14 @@ set -Eeuo pipefail
 
 declare -A aliases=(
 	[7.4]='7'
-	[8.0]='8 latest'
+	[8.1]='8 latest'
 )
 
 defaultDebianSuite='bullseye'
 declare -A debianSuites=(
 	#[7.4]='buster'
 )
-defaultAlpineVersion='3.14'
+defaultAlpineVersion='3.15'
 declare -A alpineVersions=(
 	# /usr/src/php/ext/openssl/openssl.c:551:12: error: static declaration of 'RSA_set0_key' follows non-static declaration
 	# https://github.com/docker-library/php/pull/702#issuecomment-413341743
@@ -21,7 +21,7 @@ self="$(basename "$BASH_SOURCE")"
 cd "$(dirname "$(readlink -f "$BASH_SOURCE")")"
 
 if [ "$#" -eq 0 ]; then
-	versions="$(jq -r 'keys | map(@sh) | join(" ")' versions.json)"
+	versions="$(jq -r 'to_entries | map(if .value then .key | @sh else empty end) | join(" ")' versions.json)"
 	eval "set -- $versions"
 fi
 
