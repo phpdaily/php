@@ -67,26 +67,6 @@ New tags are now created (https://github.com/phpdaily/php#supported-tags-and-res
 * [7.4-fpm-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/fpm)
 * [7.4-zts-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/zts)
 
-### 7.3
-
-* [7.3, 7.3-alpine, 7.3-alpine3.12, 7.3-cli-alpine3.12](https://github.com/phpdaily/php/tree/master/7.3-dev/alpine3.12/cli)
-* [7.3-fpm-alpine3.12](https://github.com/phpdaily/php/tree/master/7.3-dev/alpine3.12/fpm)
-* [7.3-zts-alpine3.12](https://github.com/phpdaily/php/tree/master/7.3-dev/alpine3.12/zts)
-* [7.3-cli-alpine3.13](https://github.com/phpdaily/php/tree/master/7.3-dev/alpine3.13/cli)
-* [7.3-fpm-alpine3.13](https://github.com/phpdaily/php/tree/master/7.3-dev/alpine3.13/fpm)
-* [7.3-zts-alpine3.13](https://github.com/phpdaily/php/tree/master/7.3-dev/alpine3.13/zts)
-* [7.3-cli-alpine3.14](https://github.com/phpdaily/php/tree/master/7.3-dev/alpine3.14/cli)
-* [7.3-fpm-alpine3.14](https://github.com/phpdaily/php/tree/master/7.3-dev/alpine3.14/fpm)
-* [7.3-zts-alpine3.14](https://github.com/phpdaily/php/tree/master/7.3-dev/alpine3.14/zts)
-* [7.3-stretch, 7.3-cli-stretch](https://github.com/phpdaily/php/tree/master/7.3-dev/stretch/cli)
-* [7.3-apache-stretch](https://github.com/phpdaily/php/tree/master/7.3-dev/stretch/apache)
-* [7.3-fpm-stretch](https://github.com/phpdaily/php/tree/master/7.3-dev/stretch/fpm)
-* [7.3-zts-stretch](https://github.com/phpdaily/php/tree/master/7.3-dev/stretch/zts)
-* [7.3-buster, 7.3-cli-buster](https://github.com/phpdaily/php/tree/master/7.3-dev/buster/cli)
-* [7.3-apache-buster](https://github.com/phpdaily/php/tree/master/7.3-dev/buster/apache)
-* [7.3-fpm-buster](https://github.com/phpdaily/php/tree/master/7.3-dev/buster/fpm)
-* [7.3-zts-buster](https://github.com/phpdaily/php/tree/master/7.3-dev/buster/zts)
-
 ### Deprecated tags
 
 ### 8.1
@@ -131,24 +111,3 @@ New tags are now created (https://github.com/phpdaily/php#supported-tags-and-res
 * [7.4.24-dev-cli-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/cli)
 * [7.4.24-dev-fpm-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/fpm)
 * [7.4.24-dev-zts-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/zts)
-
-### 7.3
-
-* [7.3-dev, 7.3.31-dev-cli-alpine](https://github.com/phpdaily/php/tree/master/7.3-dev/alpine3.12/cli)
-* [7.3-dev-alpine3.12, 7.3.31-dev-cli-alpine3.12](https://github.com/phpdaily/php/tree/master/7.3-dev/alpine3.12/cli)
-* [7.3.31-dev-fpm-alpine3.12](https://github.com/phpdaily/php/tree/master/7.3-dev/alpine3.12/fpm)
-* [7.3.31-dev-zts-alpine3.12](https://github.com/phpdaily/php/tree/master/7.3-dev/alpine3.12/zts)
-* [7.3-dev-alpine3.13, 7.3.31-dev-cli-alpine3.13](https://github.com/phpdaily/php/tree/master/7.3-dev/alpine3.13/cli)
-* [7.3.31-dev-fpm-alpine3.13](https://github.com/phpdaily/php/tree/master/7.3-dev/alpine3.13/fpm)
-* [7.3.31-dev-zts-alpine3.13](https://github.com/phpdaily/php/tree/master/7.3-dev/alpine3.13/zts)
-* [7.3-dev-alpine3.14, 7.3.31-dev-cli-alpine3.14](https://github.com/phpdaily/php/tree/master/7.3-dev/alpine3.14/cli)
-* [7.3.31-dev-fpm-alpine3.14](https://github.com/phpdaily/php/tree/master/7.3-dev/alpine3.14/fpm)
-* [7.3.31-dev-zts-alpine3.14](https://github.com/phpdaily/php/tree/master/7.3-dev/alpine3.14/zts)
-* [7.3.31-dev-apache-stretch](https://github.com/phpdaily/php/tree/master/7.3-dev/stretch/apache)
-* [7.3-dev-stretch, 7.3.31-dev-cli-stretch](https://github.com/phpdaily/php/tree/master/7.3-dev/stretch/cli)
-* [7.3.31-dev-fpm-stretch](https://github.com/phpdaily/php/tree/master/7.3-dev/stretch/fpm)
-* [7.3.31-dev-zts-stretch](https://github.com/phpdaily/php/tree/master/7.3-dev/stretch/zts)
-* [7.3.31-dev-apache-buster](https://github.com/phpdaily/php/tree/master/7.3-dev/buster/apache)
-* [7.3-dev-buster, 7.3.31-dev-cli-buster](https://github.com/phpdaily/php/tree/master/7.3-dev/buster/cli)
-* [7.3.31-dev-fpm-buster](https://github.com/phpdaily/php/tree/master/7.3-dev/buster/fpm)
-* [7.3.31-dev-zts-buster](https://github.com/phpdaily/php/tree/master/7.3-dev/buster/zts)
