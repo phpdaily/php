@@ -5,6 +5,11 @@ on:
     branches:
       - master
     paths:
+      - .github/workflows/php82.yml
+      - '8.2-dev/**'
+  pull_request:
+    paths:
+      - .github/workflows/php82.yml
       - '8.2-dev/**'
   schedule:
     - cron: '0 0 * * *'
@@ -29,6 +34,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+        if: github.event_name != 'pull_request'
       - run: |
           echo "tag_generic_version=phpdaily/php:8.2" >> $GITHUB_ENV
           echo "tag_short_platform=phpdaily/php:8.2-alpine" >> $GITHUB_ENV
@@ -40,7 +46,7 @@ jobs:
         with:
           context: 8.2-dev/${{ matrix.alpine }}/${{ matrix.sapi }}
           no-cache: true
-          push: true
+          push: ${{ github.event_name != 'pull_request' }}
           tags: |
             phpdaily/php:8.2-${{ matrix.sapi }}-${{ matrix.alpine }}
             ${{ env.tag_generic_version }}
@@ -66,6 +72,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+        if: github.event_name != 'pull_request'
       - run: echo "tag_generic_platform=phpdaily/php:8.2-${{ matrix.ubuntu }}" >> $GITHUB_ENV
         if: ${{ matrix.sapi == 'cli' }}
       - name: Build
@@ -73,7 +80,7 @@ jobs:
         with:
           context: 8.2-dev/${{ matrix.ubuntu }}/${{ matrix.sapi }}
           no-cache: true
-          push: true
+          push: ${{ github.event_name != 'pull_request' }}
           tags: |
             phpdaily/php:8.2-${{ matrix.sapi }}-${{ matrix.ubuntu }}
             ${{ env.tag_generic_platform }}
