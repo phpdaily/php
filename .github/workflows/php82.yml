@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        alpine: ['alpine3.12', 'alpine3.13', 'alpine3.14']
+        alpine: ['alpine3.12', 'alpine3.13', 'alpine3.14', 'alpine3.15']
         sapi: ['cli', 'fpm']
     steps:
       - name: Checkout
@@ -38,7 +38,7 @@ jobs:
       - run: |
           echo "tag_generic_version=phpdaily/php:8.2" >> $GITHUB_ENV
           echo "tag_short_platform=phpdaily/php:8.2-alpine" >> $GITHUB_ENV
-        if: ${{ matrix.alpine == 'alpine3.14' && matrix.sapi == 'cli' }}
+        if: ${{ matrix.alpine == 'alpine3.15' && matrix.sapi == 'cli' }}
       - run: echo "tag_generic_platform=phpdaily/php:8.2-${{ matrix.alpine }}" >> $GITHUB_ENV
         if: ${{ matrix.sapi == 'cli' }}
       - name: Build
