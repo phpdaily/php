@@ -34,6 +34,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+        if: github.event_name != 'pull_request'
       - run: |
           echo "tag_latest=phpdaily/php:latest" >> $GITHUB_ENV
           echo "tag_generic_version=phpdaily/php:8.1" >> $GITHUB_ENV
@@ -73,6 +74,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+        if: github.event_name != 'pull_request'
       - run: echo "tag_generic_platform=phpdaily/php:8.1-${{ matrix.ubuntu }}" >> $GITHUB_ENV
         if: ${{ matrix.sapi == 'cli' }}
       - name: Build
