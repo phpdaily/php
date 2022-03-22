@@ -5,6 +5,11 @@ on:
     branches:
       - master
     paths:
+      - .github/workflows/php74.yml
+      - '7.4-dev/**'
+  pull_request:
+    paths:
+      - .github/workflows/php74.yml
       - '7.4-dev/**'
   schedule:
     - cron: '0 0 1,15 * *'
@@ -40,7 +45,7 @@ jobs:
         with:
           context: 7.4-dev/${{ matrix.alpine }}/${{ matrix.sapi }}
           no-cache: true
-          push: true
+          push: ${{ github.event_name != 'pull_request' }}
           tags: |
             phpdaily/php:7.4-${{ matrix.sapi }}-${{ matrix.alpine }}
             ${{ env.tag_generic_version }}
@@ -73,7 +78,7 @@ jobs:
         with:
           context: 7.4-dev/${{ matrix.ubuntu }}/${{ matrix.sapi }}
           no-cache: true
-          push: true
+          push: ${{ github.event_name != 'pull_request' }}
           tags: |
             phpdaily/php:7.4-${{ matrix.sapi }}-${{ matrix.ubuntu }}
             ${{ env.tag_generic_platform }}

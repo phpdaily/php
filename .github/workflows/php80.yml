@@ -5,6 +5,11 @@ on:
     branches:
       - master
     paths:
+      - .github/workflows/php80.yml
+      - '8.0-dev/**'
+  pull_request:
+    paths:
+      - .github/workflows/php80.yml
       - '8.0-dev/**'
   schedule:
     - cron: '0 0 * * *'
@@ -40,7 +45,7 @@ jobs:
         with:
           context: 8.0-dev/${{ matrix.alpine }}/${{ matrix.sapi }}
           no-cache: true
-          push: true
+          push: ${{ github.event_name != 'pull_request' }}
           tags: |
             phpdaily/php:8.0-${{ matrix.sapi }}-${{ matrix.alpine }}
             ${{ env.tag_generic_version }}
@@ -73,7 +78,7 @@ jobs:
         with:
           context: 8.0-dev/${{ matrix.ubuntu }}/${{ matrix.sapi }}
           no-cache: true
-          push: true
+          push: ${{ github.event_name != 'pull_request' }}
           tags: |
             phpdaily/php:8.0-${{ matrix.sapi }}-${{ matrix.ubuntu }}
             ${{ env.tag_generic_platform }}
