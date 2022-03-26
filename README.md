@@ -14,7 +14,8 @@ New tags are now created (https://github.com/phpdaily/php#supported-tags-and-res
 
 ### 8.2
 
-* [8.2, 8.2-alpine, 8.2-alpine3.12, 8.2-cli-alpine3.12](https://github.com/phpdaily/php/tree/master/8.2-dev/alpine3.12/cli)
+* [8.2, 8.2-alpine, 8.2-alpine3.15, 8.2-cli-alpine3.15](https://github.com/phpdaily/php/tree/master/8.2-dev/alpine3.15/cli)
+* [8.2-cli-alpine3.12](https://github.com/phpdaily/php/tree/master/8.2-dev/alpine3.12/cli)
 * [8.2-fpm-alpine3.12](https://github.com/phpdaily/php/tree/master/8.2-dev/alpine3.12/fpm)
 * [8.2-cli-alpine3.13](https://github.com/phpdaily/php/tree/master/8.2-dev/alpine3.13/cli)
 * [8.2-fpm-alpine3.13](https://github.com/phpdaily/php/tree/master/8.2-dev/alpine3.13/fpm)
@@ -27,7 +28,8 @@ New tags are now created (https://github.com/phpdaily/php#supported-tags-and-res
 
 ### 8.1
 
-* [8.1, 8.1-alpine, 8.1-alpine3.12, 8.1-cli-alpine3.12](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.12/cli)
+* [8.1, 8.1-alpine, 8.1-alpine3.15, 8.1-cli-alpine3.15](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.15/cli)
+* [8.1-cli-alpine3.12](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.12/cli)
 * [8.1-fpm-alpine3.12](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.12/fpm)
 * [8.1-cli-alpine3.13](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.13/cli)
 * [8.1-fpm-alpine3.13](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.13/fpm)
@@ -40,7 +42,8 @@ New tags are now created (https://github.com/phpdaily/php#supported-tags-and-res
 
 ### 8.0
 
-* [8.0, 8.0-alpine, 8.0-alpine3.12, 8.0-cli-alpine3.12](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.12/cli)
+* [8.0, 8.0-alpine, 8.0-alpine3.15, 8.0-cli-alpine3.15](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.15/cli)
+* [8.0-cli-alpine3.12](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.12/cli)
 * [8.0-fpm-alpine3.12](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.12/fpm)
 * [8.0-cli-alpine3.13](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.13/cli)
 * [8.0-fpm-alpine3.13](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.13/fpm)
@@ -53,7 +56,8 @@ New tags are now created (https://github.com/phpdaily/php#supported-tags-and-res
 
 ### 7.4
 
-* [7.4, 7.4-alpine, 7.4-alpine3.12, 7.4-cli-alpine3.12](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.12/cli)
+* [7.4, 7.4-alpine, 7.4-alpine3.15, 7.4-cli-alpine3.15](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.15/cli)
+* [7.4-cli-alpine3.12](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.12/cli)
 * [7.4-fpm-alpine3.12](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.12/fpm)
 * [7.4-zts-alpine3.12](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.12/zts)
 * [7.4-cli-alpine3.13](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.13/cli)
