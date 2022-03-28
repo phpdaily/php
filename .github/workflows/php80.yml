@@ -58,7 +58,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ubuntu: ['buster']
+        ubuntu: ['buster', 'bullseye']
         sapi: ['apache', 'cli', 'fpm', "zts"]
     steps:
       - name: Checkout
