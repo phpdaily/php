@@ -4,21 +4,11 @@ Nightly build for PHP docker image development branches
 
 **/!\ Don't use those images on production /!\**
 
-## Deprecations notice
-
-**WARNING**: Docker image tags are going to be updated soon. From the October 1st, image tags will no longer contain minor version.
-
-New tags are now created (https://github.com/phpdaily/php#supported-tags-and-respective-dockerfile-links).
-
 ## Supported tags and respective Dockerfile links
 
 ### 8.2
 
 * [8.2, 8.2-alpine, 8.2-alpine3.15, 8.2-cli-alpine3.15](https://github.com/phpdaily/php/tree/master/8.2-dev/alpine3.15/cli)
-* [8.2-cli-alpine3.12](https://github.com/phpdaily/php/tree/master/8.2-dev/alpine3.12/cli)
-* [8.2-fpm-alpine3.12](https://github.com/phpdaily/php/tree/master/8.2-dev/alpine3.12/fpm)
-* [8.2-cli-alpine3.13](https://github.com/phpdaily/php/tree/master/8.2-dev/alpine3.13/cli)
-* [8.2-fpm-alpine3.13](https://github.com/phpdaily/php/tree/master/8.2-dev/alpine3.13/fpm)
 * [8.2-cli-alpine3.14](https://github.com/phpdaily/php/tree/master/8.2-dev/alpine3.14/cli)
 * [8.2-fpm-alpine3.14](https://github.com/phpdaily/php/tree/master/8.2-dev/alpine3.14/fpm)
 * [8.2-buster, 8.2-cli-buster](https://github.com/phpdaily/php/tree/master/8.2-dev/buster/cli)
@@ -29,10 +19,6 @@ New tags are now created (https://github.com/phpdaily/php#supported-tags-and-res
 ### 8.1
 
 * [8.1, 8.1-alpine, 8.1-alpine3.15, 8.1-cli-alpine3.15](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.15/cli)
-* [8.1-cli-alpine3.12](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.12/cli)
-* [8.1-fpm-alpine3.12](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.12/fpm)
-* [8.1-cli-alpine3.13](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.13/cli)
-* [8.1-fpm-alpine3.13](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.13/fpm)
 * [8.1-cli-alpine3.14](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.14/cli)
 * [8.1-fpm-alpine3.14](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.14/fpm)
 * [8.1-buster, 8.1-cli-buster](https://github.com/phpdaily/php/tree/master/8.1-dev/buster/cli)
@@ -43,10 +29,6 @@ New tags are now created (https://github.com/phpdaily/php#supported-tags-and-res
 ### 8.0
 
 * [8.0, 8.0-alpine, 8.0-alpine3.15, 8.0-cli-alpine3.15](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.15/cli)
-* [8.0-cli-alpine3.12](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.12/cli)
-* [8.0-fpm-alpine3.12](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.12/fpm)
-* [8.0-cli-alpine3.13](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.13/cli)
-* [8.0-fpm-alpine3.13](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.13/fpm)
 * [8.0-cli-alpine3.14](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.14/cli)
 * [8.0-fpm-alpine3.14](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.14/fpm)
 * [8.0-buster, 8.0-cli-buster](https://github.com/phpdaily/php/tree/master/8.0-dev/buster/cli)
@@ -57,12 +39,7 @@ New tags are now created (https://github.com/phpdaily/php#supported-tags-and-res
 ### 7.4
 
 * [7.4, 7.4-alpine, 7.4-alpine3.15, 7.4-cli-alpine3.15](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.15/cli)
-* [7.4-cli-alpine3.12](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.12/cli)
-* [7.4-fpm-alpine3.12](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.12/fpm)
-* [7.4-zts-alpine3.12](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.12/zts)
-* [7.4-cli-alpine3.13](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.13/cli)
-* [7.4-fpm-alpine3.13](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.13/fpm)
-* [7.4-zts-alpine3.13](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.13/zts)
+* [7.4-zts-alpine3.15](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.15/zts)
 * [7.4-cli-alpine3.14](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.14/cli)
 * [7.4-fpm-alpine3.14](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.14/fpm)
 * [7.4-zts-alpine3.14](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.14/zts)
@@ -71,47 +48,12 @@ New tags are now created (https://github.com/phpdaily/php#supported-tags-and-res
 * [7.4-fpm-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/fpm)
 * [7.4-zts-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/zts)
 
-### Deprecated tags
+## Unsupported tags
 
-### 8.1
+### Tags containing minor version
 
-* [8.1-dev, 8.1-dev-alpine3.12, 8.1.0-dev-cli-alpine3.12](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.12/cli)
-* [8.1.0-dev-fpm-alpine3.12](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.12/fpm)
-* [8.1.0-dev-zts-alpine3.12](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.12/zts)
-* [8.1-dev-alpine3.13, 8.1.0-dev-cli-alpine3.13](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.13/cli)
-* [8.1.0-dev-fpm-alpine3.13](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.13/fpm)
-* [8.1-dev-alpine3.14, 8.1.0-dev-cli-alpine3.14](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.14/cli)
-* [8.1.0-dev-fpm-alpine3.14](https://github.com/phpdaily/php/tree/master/8.1-dev/alpine3.14/fpm)
-* [8.1.0-dev-apache-buster](https://github.com/phpdaily/php/tree/master/8.1-dev/buster/apache)
-* [8.1.0-dev-cli-buster](https://github.com/phpdaily/php/tree/master/8.1-dev/buster/cli)
-* [8.1.0-dev-fpm-buster](https://github.com/phpdaily/php/tree/master/8.1-dev/buster/fpm)
-* [8.1.0-dev-zts-buster](https://github.com/phpdaily/php/tree/master/8.1-dev/buster/zts)
+As of October 2021, tags are no longer containing minor version of PHP, and are no longer containing the `-dev` version suffix.
 
-### 8.0
+### Alpine Linux 3.12 and 3.13
 
-* [latest, 8.0-dev, 8.0-dev-alpine3.12, 8.0.11-dev-cli-alpine](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.12/cli)
-* [8.0.11-dev-fpm-alpine3.12](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.12/fpm)
-* [8.0-dev-alpine3.13, 8.0.11-dev-cli-alpine3.13](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.13/cli)
-* [8.0.11-dev-fpm-alpine3.13](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.13/fpm)
-* [8.0-dev-alpine3.14, 8.0.11-dev-cli-alpine3.14](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.14/cli)
-* [8.0.11-dev-fpm-alpine3.14](https://github.com/phpdaily/php/tree/master/8.0-dev/alpine3.14/fpm)
-* [8.0.11-dev-apache-buster](https://github.com/phpdaily/php/tree/master/8.0-dev/buster/apache)
-* [8.0.11-dev-cli-buster](https://github.com/phpdaily/php/tree/master/8.0-dev/buster/cli)
-* [8.0.11-dev-fpm-buster](https://github.com/phpdaily/php/tree/master/8.0-dev/buster/fpm)
-* [8.0.11-dev-zts-buster](https://github.com/phpdaily/php/tree/master/8.0-dev/buster/zts)
-
-### 7.4
-
-* [7.4-dev, 7.4-dev-alpine3.12, 7.4.24-dev-cli-alpine3.12](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.12/cli)
-* [7.4.24-dev-fpm-alpine3.12](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.12/fpm)
-* [7.4.24-dev-zts-alpine3.12](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.12/zts)
-* [7.4-dev-alpine3.13, 7.4.24-dev-cli-alpine3.13](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.13/cli)
-* [7.4.24-dev-fpm-alpine3.13](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.13/fpm)
-* [7.4.24-dev-zts-alpine3.13](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.13/zts)
-* [7.4-dev-alpine3.14, 7.4.24-dev-cli-alpine3.14](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.14/cli)
-* [7.4.24-dev-fpm-alpine3.14](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.14/fpm)
-* [7.4.24-dev-zts-alpine3.14](https://github.com/phpdaily/php/tree/master/7.4-dev/alpine3.14/zts)
-* [7.4.24-dev-apache-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/apache)
-* [7.4.24-dev-cli-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/cli)
-* [7.4.24-dev-fpm-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/fpm)
-* [7.4.24-dev-zts-buster](https://github.com/phpdaily/php/tree/master/7.4-dev/buster/zts)
+As of April 2022, images beased on 3.12 and 3.13 versions of Alpine Linux are no longer built.

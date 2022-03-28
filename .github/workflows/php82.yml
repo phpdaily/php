@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        alpine: ['alpine3.12', 'alpine3.13', 'alpine3.14', 'alpine3.15']
+        alpine: ['alpine3.14', 'alpine3.15']
         sapi: ['cli', 'fpm']
     steps:
       - name: Checkout
