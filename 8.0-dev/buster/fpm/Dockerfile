@@ -50,8 +50,6 @@ RUN set -eux; \
 	chown www-data:www-data /var/www/html; \
 	chmod 777 /var/www/html
 
-ENV PHP_EXTRA_CONFIGURE_ARGS --enable-fpm --with-fpm-user=www-data --with-fpm-group=www-data --disable-cgi
-
 # Apply stack smash protection to functions using local buffers and alloca()
 # Make PHP's main executable position-independent (improves ASLR security mechanism, and has no performance impact on x86_64)
 # Enable optimization (-O2)
@@ -88,7 +86,7 @@ RUN set -eux; \
 		curl -fsSL -o php.tar.xz.asc "$PHP_ASC_URL"; \
 		export GNUPGHOME="$(mktemp -d)"; \
 		for key in $GPG_KEYS; do \
-			gpg --batch --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
+			gpg --batch --keyserver keyserver.ubuntu.com --recv-keys "$key"; \
 		done; \
 		gpg --batch --verify php.tar.xz.asc php.tar.xz; \
 		gpgconf --kill all; \
@@ -108,16 +106,14 @@ RUN set -eux; \
 	apt-get install -y --no-install-recommends \
 		libargon2-dev \
 		libcurl4-openssl-dev \
-		libedit-dev \
 		libonig-dev \
+		libreadline-dev \
 		libsodium-dev \
 		libsqlite3-dev \
 		libssl-dev \
 		libxml2-dev \
 		zlib1g-dev \
-		${PHP_EXTRA_BUILD_DEPS:-} \
 	; \
-	rm -rf /var/lib/apt/lists/*; \
 	\
 	export \
 		CFLAGS="$PHP_CFLAGS" \
@@ -153,7 +149,7 @@ RUN set -eux; \
 		--enable-mbstring \
 # --enable-mysqlnd is included here because it's harder to compile after the fact than extensions are (since it's a plugin for several extensions, not an extension in itself)
 		--enable-mysqlnd \
-# https://wiki.php.net/rfc/argon2_password_hash (7.2+)
+# https://wiki.php.net/rfc/argon2_password_hash
 		--with-password-argon2 \
 # https://wiki.php.net/rfc/libsodium
 		--with-sodium=shared \
@@ -162,24 +158,39 @@ RUN set -eux; \
 		--with-sqlite3=/usr \
 		\
 		--with-curl \
-		--with-libedit \
+		--with-iconv \
 		--with-openssl \
+		--with-readline \
 		--with-zlib \
+		\
+# https://github.com/bwoebi/phpdbg-docs/issues/1#issuecomment-163872806 ("phpdbg is primarily a CLI debugger, and is not suitable for debugging an fpm stack.")
+		--disable-phpdbg \
 		\
 # in PHP 7.4+, the pecl/pear installers are officially deprecated (requiring an explicit "--with-pear")
 		--with-pear \
 		\
 # bundled pcre does not support JIT on s390x
-# https://manpages.debian.org/stretch/libpcre3-dev/pcrejit.3.en.html#AVAILABILITY_OF_JIT_SUPPORT
+# https://manpages.debian.org/bullseye/libpcre3-dev/pcrejit.3.en.html#AVAILABILITY_OF_JIT_SUPPORT
 		$(test "$gnuArch" = 's390x-linux-gnu' && echo '--without-pcre-jit') \
 		--with-libdir="lib/$debMultiarch" \
 		\
-		${PHP_EXTRA_CONFIGURE_ARGS:-} \
+		--disable-cgi \
+		\
+		--enable-fpm \
+		--with-fpm-user=www-data \
+		--with-fpm-group=www-data \
 	; \
 	make -j "$(nproc)"; \
 	find -type f -name '*.a' -delete; \
 	make install; \
-	find /usr/local/bin /usr/local/sbin -type f -executable -exec strip --strip-all '{}' + || true; \
+	find \
+		/usr/local \
+		-type f \
+		-perm '/0111' \
+		-exec sh -euxc ' \
+			strip --strip-all "$@" || : \
+		' -- '{}' + \
+	; \
 	make clean; \
 	\
 # https://github.com/docker-library/php/issues/692 (copy default example "php.ini" files somewhere easily discoverable)
@@ -200,6 +211,7 @@ RUN set -eux; \
 		| xargs -r apt-mark manual \
 	; \
 	apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
+	rm -rf /var/lib/apt/lists/*; \
 	\
 # update pecl channel definitions https://github.com/docker-library/php/issues/443
 	pecl update-channels; \

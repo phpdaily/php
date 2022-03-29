@@ -57,9 +57,9 @@ ENV PHP_LDFLAGS="-Wl,-O1 -pie"
 
 ENV GPG_KEYS 528995BFEDFBA7191D46839EF9BA0ADA31CBD89E 39B641343D8C104B2B146DC3F9C39DC0B9698544 F1F692238FBC1666E5A5CCD4199F9DFEF6FFBAFD
 
-ENV PHP_VERSION 8.1.2
-ENV PHP_URL="https://www.php.net/distributions/php-8.1.2.tar.xz" PHP_ASC_URL="https://www.php.net/distributions/php-8.1.2.tar.xz.asc"
-ENV PHP_SHA256="6b448242fd360c1a9f265b7263abf3da25d28f2b2b0f5465533b69be51a391dd"
+ENV PHP_VERSION 8.1.4
+ENV PHP_URL="https://www.php.net/distributions/php-8.1.4.tar.xz" PHP_ASC_URL="https://www.php.net/distributions/php-8.1.4.tar.xz.asc"
+ENV PHP_SHA256="05a8c0ac30008154fb38a305560543fc172ba79fb957084a99b8d3b10d5bdb4b"
 
 RUN set -eux; \
 	\
@@ -95,6 +95,7 @@ RUN set -eux; \
 		argon2-dev \
 		coreutils \
 		curl-dev \
+		gnu-libiconv-dev \
 		libsodium-dev \
 		libxml2-dev \
 		linux-headers \
@@ -103,6 +104,9 @@ RUN set -eux; \
 		readline-dev \
 		sqlite-dev \
 	; \
+	\
+# make sure musl's iconv doesn't get used (https://www.php.net/manual/en/intro.iconv.php)
+	rm -vf /usr/include/iconv.h; \
 	\
 	export \
 		CFLAGS="$PHP_CFLAGS" \
@@ -141,9 +145,13 @@ RUN set -eux; \
 		--with-sqlite3=/usr \
 		\
 		--with-curl \
+		--with-iconv=/usr \
 		--with-openssl \
 		--with-readline \
 		--with-zlib \
+		\
+# https://github.com/bwoebi/phpdbg-docs/issues/1#issuecomment-163872806 ("phpdbg is primarily a CLI debugger, and is not suitable for debugging an fpm stack.")
+		--disable-phpdbg \
 		\
 # in PHP 7.4+, the pecl/pear installers are officially deprecated (requiring an explicit "--with-pear")
 		--with-pear \

@@ -57,9 +57,9 @@ ENV PHP_LDFLAGS="-Wl,-O1 -pie"
 
 ENV GPG_KEYS 42670A7FE4D0441C8E4632349E4FDC074A4EF02D 5A52880781F755608BF815FC910DEB46F53EA312
 
-ENV PHP_VERSION 7.4.27
-ENV PHP_URL="https://www.php.net/distributions/php-7.4.27.tar.xz" PHP_ASC_URL="https://www.php.net/distributions/php-7.4.27.tar.xz.asc"
-ENV PHP_SHA256="3f8b937310f155822752229c2c2feb8cc2621e25a728e7b94d0d74c128c43d0c"
+ENV PHP_VERSION 7.4.28
+ENV PHP_URL="https://www.php.net/distributions/php-7.4.28.tar.xz" PHP_ASC_URL="https://www.php.net/distributions/php-7.4.28.tar.xz.asc"
+ENV PHP_SHA256="9cc3b6f6217b60582f78566b3814532c4b71d517876c25013ae51811e65d8fce"
 
 RUN set -eux; \
 	\
@@ -95,6 +95,7 @@ RUN set -eux; \
 		argon2-dev \
 		coreutils \
 		curl-dev \
+		gnu-libiconv-dev \
 		libsodium-dev \
 		libxml2-dev \
 		linux-headers \
@@ -103,6 +104,11 @@ RUN set -eux; \
 		readline-dev \
 		sqlite-dev \
 	; \
+	\
+# make sure musl's iconv doesn't get used (https://www.php.net/manual/en/intro.iconv.php)
+	rm -vf /usr/include/iconv.h; \
+# PHP < 8 doesn't know to look deeper for GNU libiconv: https://github.com/php/php-src/commit/b480e6841ecd5317faa136647a2b8253a4c2d0df
+	ln -sv /usr/include/gnu-libiconv/*.h /usr/include/; \
 	\
 	export \
 		CFLAGS="$PHP_CFLAGS" \
@@ -141,9 +147,13 @@ RUN set -eux; \
 		--with-sqlite3=/usr \
 		\
 		--with-curl \
+		--with-iconv=/usr \
 		--with-openssl \
 		--with-readline \
 		--with-zlib \
+		\
+# https://github.com/bwoebi/phpdbg-docs/issues/1#issuecomment-163872806 ("phpdbg is primarily a CLI debugger, and is not suitable for debugging an fpm stack.")
+		--disable-phpdbg \
 		\
 # in PHP 7.4+, the pecl/pear installers are officially deprecated (requiring an explicit "--with-pear")
 		--with-pear \

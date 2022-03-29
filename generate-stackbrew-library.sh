@@ -12,9 +12,7 @@ declare -A debianSuites=(
 )
 defaultAlpineVersion='3.15'
 declare -A alpineVersions=(
-	# /usr/src/php/ext/openssl/openssl.c:551:12: error: static declaration of 'RSA_set0_key' follows non-static declaration
-	# https://github.com/docker-library/php/pull/702#issuecomment-413341743
-	#[7.0]='3.7'
+	#[8.1]='3.15'
 )
 
 self="$(basename "$BASH_SOURCE")"
@@ -82,11 +80,27 @@ join() {
 }
 
 for version; do
-	export version
+	rcVersion="${version%-rc}"
+	export version rcVersion
+
+	if ! fullVersion="$(jq -er '.[env.version] | if . then .version else empty end' versions.json)"; then
+		continue
+	fi
+
+	if [ "$rcVersion" != "$version" ] && rcFullVersion="$(jq -er '.[env.rcVersion] | if . then .version else empty end' versions.json)"; then
+		# if this is a "-rc" release, let's make sure the release it contains isn't already GA (and thus something we should not publish anymore)
+		latestVersion="$({ echo "$fullVersion"; echo "$rcFullVersion"; } | sort -V | tail -1)"
+		if [[ "$fullVersion" == "$rcFullVersion"* ]] || [ "$latestVersion" = "$rcFullVersion" ]; then
+			# "x.y.z-rc1" == x.y.z*
+			continue
+		fi
+	fi
+
 	variants="$(jq -r '.[env.version].variants | map(@sh) | join(" ")' versions.json)"
 	eval "variants=( $variants )"
 
 	versionAliases=(
+		$fullVersion
 		$version
 		${aliases[$version]:-}
 	)
@@ -97,14 +111,11 @@ for version; do
 		dir="$version/$dir"
 		[ -f "$dir/Dockerfile" ] || continue
 
-		fullVersion="$(jq -r '.[env.version].version' versions.json)"
-
-		baseAliases=( $fullVersion "${versionAliases[@]}" )
-		variantAliases=( "${baseAliases[@]/%/-$variant}" )
+		variantAliases=( "${versionAliases[@]/%/-$variant}" )
 		variantAliases=( "${variantAliases[@]//latest-/}" )
 
 		if [ "$variant" = 'cli' ]; then
-			variantAliases+=( "${baseAliases[@]}" )
+			variantAliases+=( "${versionAliases[@]}" )
 		fi
 
 		suiteVariantAliases=( "${variantAliases[@]/%/-$suite}" )
@@ -118,17 +129,6 @@ for version; do
 
 		variantParent="$(awk 'toupper($1) == "FROM" { print $2 }' "$dir/Dockerfile")"
 		variantArches="${parentRepoToArches[$variantParent]}"
-
-		if [ "$version" = '7.2' ]; then
-			# PHP 7.2 doesn't compile on MIPS:
-			#   /usr/src/php/ext/pcre/pcrelib/sljit/sljitNativeMIPS_common.c:506:3: error: a label can only be part of a statement and a declaration is not a statement
-			#      sljit_sw fir;
-			#      ^~~~~~~~
-			# According to https://github.com/openwrt/packages/issues/5333 + https://github.com/openwrt/packages/pull/5335,
-			# https://github.com/svn2github/pcre/commit/e5045fd31a2e171dff305665e2b921d7c93427b8#diff-291428aa92cf90de0f2486f9c2829158
-			# *might* fix it, but it's likely not worth it just for PHP 7.2 on MIPS (since 7.3 and 7.4 work fine).
-			variantArches="$(echo " $variantArches " | sed -e 's/ mips64le / /g')"
-		fi
 
 		commit="$(dirCommit "$dir")"
 
